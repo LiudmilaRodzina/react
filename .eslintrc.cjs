@@ -18,4 +18,13 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'error',
     'react-compiler/react-compiler': 'error',
   },
+  overrides: [
+    {
+      files: ['src/*.tsx'],
+      rules: {
+        'no-console': 1,
+      },
+      noInlineConfig: true,
+    },
+  ],
 };

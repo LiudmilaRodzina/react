@@ -1,35 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import Card from './components/Card';
+import Error from './components/Error';
+import { PokemonDetails, Pokemon } from './interfaces/pokemon';
+import { POKEAPI_URL } from './config/api';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [pokemonDetailsList, setPokemonDetailsList] = useState<
+    PokemonDetails[]
+  >([]);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchPokemon = async () => {
+      try {
+        const response = await fetch(POKEAPI_URL);
+        const data = await response.json();
+
+        const promises = data.results.map((pokemon: Pokemon) =>
+          fetchPokemonDetails(pokemon)
+        );
+        const details = await Promise.all(promises);
+        setPokemonDetailsList(details);
+      } catch (error) {
+        setError('Error fetching Pokémon list. Please try again later');
+      }
+    };
+    fetchPokemon();
+  }, []);
+
+  const fetchPokemonDetails = async (pokemon: Pokemon) => {
+    try {
+      const response = await fetch(pokemon.url);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      setError(`Error fetching details for ${pokemon.name}`);
+    }
+  };
+
+  const handleCloseError = () => {
+    setError(null);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="max-w-screen-lg mx-auto">
+      <section className="border border-gray-400 rounded shadow p-4 mb-4">
+        <h1 className="text-3xl text-center font-bold">Pokémon List</h1>
+      </section>
 
-export default App
+      <section className="border border-gray-400 rounded shadow p-4">
+        <ul className="list-none">
+          {pokemonDetailsList.map((pokemon, index) => (
+            <Card key={index} pokemon={pokemon} />
+          ))}
+        </ul>
+      </section>
+
+      {error && <Error message={error} onClose={handleCloseError} />}
+    </div>
+  );
+};
+
+export default App;
