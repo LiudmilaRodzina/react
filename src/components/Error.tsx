@@ -6,7 +6,7 @@ const Error = ({ message, onClose }: Props) => {
       <div className="bg-white border border-gray-300 rounded-lg shadow-lg p-4">
         <p className="text-red-600 text-lg">{message}</p>
         <button
-          className="mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+          className="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded"
           onClick={onClose}
         >
           Close

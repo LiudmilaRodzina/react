@@ -3,12 +3,14 @@ import Card from './components/Card';
 import Error from './components/Error';
 import { PokemonDetails, Pokemon } from './interfaces/pokemon';
 import { POKEAPI_URL } from './config/api';
+import Loader from './components/Loader';
 
 const App = () => {
   const [pokemonDetailsList, setPokemonDetailsList] = useState<
     PokemonDetails[]
   >([]);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -23,6 +25,8 @@ const App = () => {
         setPokemonDetailsList(details);
       } catch (error) {
         setError('Error fetching Pokémon list. Please try again later');
+      } finally {
+        setLoading(false);
       }
     };
     fetchPokemon();
@@ -50,9 +54,15 @@ const App = () => {
 
       <section className="border border-gray-400 rounded shadow p-4">
         <ul className="list-none">
-          {pokemonDetailsList.map((pokemon, index) => (
-            <Card key={index} pokemon={pokemon} />
-          ))}
+          {loading ? (
+            <Loader loading={loading} />
+          ) : (
+            <>
+              {pokemonDetailsList.map((pokemon, index) => (
+                <Card key={index} pokemon={pokemon} />
+              ))}
+            </>
+          )}
         </ul>
       </section>
 
