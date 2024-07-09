@@ -21,12 +21,12 @@ const SearchBar = ({ onSearch }: { onSearch: (input: string) => void }) => {
         placeholder="Type to search..."
         value={input}
         onChange={(e) => handleInputChange(e.target.value)}
-        className="border border-gray-400 rounded shadow p-1 m-2 mr-4"
+        className="border border-gray-400 rounded shadow-md p-1 mr-2 focus:outline-none focus:ring-2 focus:border-blue-100"
       />
 
       <button
         type="submit"
-        className="bg-blue-700 hover:bg-blue-800 text-white p-1 px-2 rounded"
+        className="bg-indigo-600 hover:bg-indigo-700 text-white p-1 px-2 rounded"
       >
         Search
       </button>

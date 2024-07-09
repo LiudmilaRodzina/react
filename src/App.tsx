@@ -28,7 +28,7 @@ const App = () => {
         setPokemonDetailsList(details);
         setFilteredPokemonDetailsList(details);
       } catch (error) {
-        setError('Error fetching Pokémon list. Please try again later');
+        setError('Error fetching Pokémons. Please try again later');
       } finally {
         setLoading(false);
       }
@@ -55,27 +55,32 @@ const App = () => {
       pokemon.name.toLowerCase().includes(input.toLowerCase())
     );
     setFilteredPokemonDetailsList(filteredData);
+    if (filteredData.length === 0) {
+      setError('No Pokémon found matching your search criteria');
+    } else {
+      setError(null);
+    }
   };
 
   return (
-    <div className="max-w-screen-lg mx-auto">
-      <section className="border border-gray-400 rounded shadow p-4 mb-4">
+    <div className="min-h-screen max-w-screen-xl mx-auto flex flex-col p-2">
+      <section className="border border-gray-400 rounded shadow-md p-8 mb-2 bg-indigo-50">
         <h1 className="text-3xl text-center font-bold mb-4">Pokémons</h1>
         <SearchBar onSearch={handleSearch} />
       </section>
 
-      <section className="border border-gray-400 rounded shadow p-4">
-        <ul className="list-none">
-          {loading ? (
+      <section className="flex-1 border border-gray-400 rounded shadow-md p-4 bg-indigo-50">
+        {loading ? (
+          <div className="flex justify-center items-center h-full">
             <Loader loading={loading} />
-          ) : (
-            <>
-              {filteredPokemonDetailsList.map((pokemon, index) => (
-                <Card key={index} pokemon={pokemon} />
-              ))}
-            </>
-          )}
-        </ul>
+          </div>
+        ) : (
+          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 list-none">
+            {filteredPokemonDetailsList.map((pokemon, index) => (
+              <Card key={index} pokemon={pokemon} />
+            ))}
+          </ul>
+        )}
       </section>
 
       {error && <Error message={error} onClose={handleCloseError} />}

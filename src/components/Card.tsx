@@ -2,7 +2,7 @@ import { CardProps } from '../interfaces/pokemon';
 
 const Card = ({ pokemon }: CardProps) => {
   return (
-    <li className="mb-4 border border-gray-400 rounded shadow p-4 flex items-center text-center flex-col">
+    <li className="mb-1 border border-gray-400 rounded shadow-md p-4 flex items-center text-center flex-col bg-slate-50">
       <div className="flex items-center flex-col">
         <img
           src={pokemon.sprites.front_default}
