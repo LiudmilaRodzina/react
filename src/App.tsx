@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import Card from './components/Card';
 import Error from './components/Error';
+import Loader from './components/Loader';
+import SearchBar from './components/SearchBar';
 import { PokemonDetails, Pokemon } from './interfaces/pokemon';
 import { POKEAPI_URL } from './config/api';
-import Loader from './components/Loader';
 
 const App = () => {
   const [pokemonDetailsList, setPokemonDetailsList] = useState<
@@ -11,6 +12,9 @@ const App = () => {
   >([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [filteredPokemonDetailsList, setFilteredPokemonDetailsList] = useState<
+    PokemonDetails[]
+  >([]);
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -22,6 +26,7 @@ const App = () => {
         );
         const details = await Promise.all(promises);
         setPokemonDetailsList(details);
+        setFilteredPokemonDetailsList(details);
       } catch (error) {
         setError('Error fetching Pokémon list. Please try again later');
       } finally {
@@ -45,10 +50,18 @@ const App = () => {
     setError(null);
   };
 
+  const handleSearch = (input: string) => {
+    const filteredData = pokemonDetailsList.filter((pokemon) =>
+      pokemon.name.toLowerCase().includes(input.toLowerCase())
+    );
+    setFilteredPokemonDetailsList(filteredData);
+  };
+
   return (
     <div className="max-w-screen-lg mx-auto">
       <section className="border border-gray-400 rounded shadow p-4 mb-4">
-        <h1 className="text-3xl text-center font-bold">Pokémon List</h1>
+        <h1 className="text-3xl text-center font-bold mb-4">Pokémons</h1>
+        <SearchBar onSearch={handleSearch} />
       </section>
 
       <section className="border border-gray-400 rounded shadow p-4">
@@ -57,7 +70,7 @@ const App = () => {
             <Loader loading={loading} />
           ) : (
             <>
-              {pokemonDetailsList.map((pokemon, index) => (
+              {filteredPokemonDetailsList.map((pokemon, index) => (
                 <Card key={index} pokemon={pokemon} />
               ))}
             </>

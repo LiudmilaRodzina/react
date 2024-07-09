@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "prettier": "prettier . --check --ignore-unknown",
     "format:fix": "prettier --write .",
-    "prepare": "husky && husky install"
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -43,5 +43,10 @@
       "eslint --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
       "prettier --write"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
