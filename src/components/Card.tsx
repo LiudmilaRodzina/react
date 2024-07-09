@@ -6,8 +6,7 @@ const Card = ({ pokemon }: CardProps) => {
       <div className="flex items-center flex-col">
         <img
           src={pokemon.sprites.front_default}
-          alt={`${pokemon.name} sprite`}
-          className="w-20 h-20"
+          alt={`${pokemon.name} image`}
         />
         <h2 className="text-2xl font-bold capitalize mb-4">{pokemon.name}</h2>
       </div>

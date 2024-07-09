@@ -17,7 +17,6 @@ const App = () => {
       try {
         const response = await fetch(POKEAPI_URL);
         const data = await response.json();
-
         const promises = data.results.map((pokemon: Pokemon) =>
           fetchPokemonDetails(pokemon)
         );
