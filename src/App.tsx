@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
+import { POKEAPI_URL } from './config/api';
 import Card from './components/Card';
 import Error from './components/Error';
 import Loader from './components/Loader';
 import SearchBar from './components/SearchBar';
-import { PokemonDetails, Pokemon } from './interfaces/pokemon';
-import { POKEAPI_URL } from './config/api';
+import { PokemonDetails, Pokemon } from './interfaces/interfaces';
 
 const App = () => {
   const [pokemonDetailsList, setPokemonDetailsList] = useState<
@@ -52,14 +52,13 @@ const App = () => {
 
   const handleSearch = (input: string) => {
     const filteredData = pokemonDetailsList.filter((pokemon) =>
-      pokemon.name.toLowerCase().includes(input.toLowerCase())
+      pokemon.name.toLowerCase().includes(input.toLowerCase().trim())
     );
     setFilteredPokemonDetailsList(filteredData);
     if (filteredData.length === 0) {
       setError('No Pokémon found matching your search criteria');
-    } else {
-      setError(null);
     }
+    if (input === '') return;
   };
 
   return (

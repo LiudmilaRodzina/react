@@ -11,9 +11,6 @@ const Loader = ({ loading }: { loading: boolean }) => {
       color="rgb(13 148 136)"
       loading={loading}
       cssOverride={override}
-      height={20}
-      width={6}
-      radius={5}
     />
   );
 };
