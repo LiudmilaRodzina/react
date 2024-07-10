@@ -63,19 +63,21 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen max-w-screen-xl mx-auto flex flex-col p-2">
-      <section className="border border-gray-400 rounded shadow-md p-8 mb-2 bg-indigo-50">
-        <h1 className="text-3xl text-center font-bold mb-4">Pokémons</h1>
+    <div className="flex flex-col min-h-screen max-w-screen-lg mx-auto p-2">
+      <section className="p-6 pb-0">
+        <h1 className="mb-8 mt-2 text-4xl sm:text-5xl md:text-6xl text-center font-bold text-indigo-700 text-shadow-lg">
+          Gotta catch 'em all!
+        </h1>
         <SearchBar onSearch={handleSearch} />
       </section>
 
-      <section className="flex-1 border border-gray-400 rounded shadow-md p-4 bg-indigo-50">
+      <section className="flex-1 p-4">
         {loading ? (
           <div className="flex justify-center items-center h-full">
             <Loader loading={loading} />
           </div>
         ) : (
-          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 list-none">
+          <ul className="grid grid-cols-1 gap-4 list-none sm:grid-cols-2 md:grid-cols-3">
             {filteredPokemonDetailsList.map((pokemon, index) => (
               <Card key={index} pokemon={pokemon} />
             ))}
