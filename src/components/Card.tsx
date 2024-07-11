@@ -1,40 +1,32 @@
-import { CardProps } from '../interfaces/interfaces';
-import { getRandomColor } from '../utils/utils';
+import { Show } from '../interfaces/interfaces';
 
-const Card = ({ pokemon }: CardProps) => {
-  const randomColorClass = getRandomColor();
-
+const Card = ({ show }: { show: Show }) => {
   return (
-    <li
-      className={`flex flex-col items-center mb-1 py-4 text-center border-indigo-400 border rounded-2xl shadow-lg shadow-indigo-400/50 transition ease-in-out hover:-translate-y-1 hover:scale-105  duration-300 ${randomColorClass}`}
+    <div
+      className={`flex flex-col items-center mb-1 p-4 text-center bg-slate-900 border-indigo-800 rounded-xl shadow-md shadow-indigo-900/60 transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300`}
     >
-      <div className="flex flex-col items-center">
-        <img
-          src={pokemon.sprites.front_default}
-          alt={`${pokemon.name} image`}
-          className="w-32 h-32"
-        />
-        <h2 className="mb-4 text-2xl font-bold capitalize text-shadow-sm ">
-          {pokemon.name}
-        </h2>
-      </div>
-      <div>
-        <p>
-          <strong>Base Exp:</strong> {pokemon.base_experience}
-        </p>
-        <p>
-          <strong>Height:</strong> {pokemon.height}
-        </p>
-        <div>
-          <strong>Abilities:</strong>
-          <ul>
-            {pokemon.abilities.map((ability, abilityIndex) => (
-              <li key={abilityIndex}>{ability.ability.name}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </li>
+      <h2 className="mb-4 text-3xl font-bold capitalize text-shadow-sm min-h-16">
+        {show.title}
+      </h2>
+      <img
+        src={show.image}
+        alt={`${show.title} image`}
+        className="w-25 h-25 mb-4"
+      />
+
+      <p>
+        <strong>Rating:</strong> {show.rating}
+      </p>
+      <p>
+        <strong>Country:</strong> {show.country}
+      </p>
+      <p>
+        <strong>Started:</strong> {show.started}
+      </p>
+      <p>
+        <strong>Total seasons:</strong> {show.totalSeasons}
+      </p>
+    </div>
   );
 };
 

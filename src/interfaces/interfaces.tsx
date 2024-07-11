@@ -1,20 +1,10 @@
-export interface Pokemon {
-  name: string;
-  url: string;
-}
-
-export interface PokemonDetails {
-  sprites: {
-    front_default: string;
-  };
-  base_experience: number;
-  height: number;
-  abilities: { ability: { name: string } }[];
-  name: string;
-}
-
-export interface CardProps {
-  pokemon: PokemonDetails;
+export interface Show {
+  title: string;
+  image: string;
+  rating: string;
+  country: string;
+  started: string;
+  totalSeasons: number;
 }
 
 export interface NotificationProps {

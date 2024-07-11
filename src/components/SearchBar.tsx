@@ -7,10 +7,7 @@ const SearchBar = ({ onSearch }: { onSearch: (input: string) => void }) => {
 
   useEffect(() => {
     const savedSearchQuery = localStorage.getItem('searchQuery');
-
-    if (savedSearchQuery) {
-      setInput(savedSearchQuery);
-    } else setInput('');
+    savedSearchQuery ? setInput(savedSearchQuery) : setInput('');
   }, []);
 
   const handleInputChange = (input: string) => {
@@ -29,7 +26,7 @@ const SearchBar = ({ onSearch }: { onSearch: (input: string) => void }) => {
       onSubmit={handleInputSubmit}
       className="flex flex-wrap items-center justify-center"
     >
-      <Input value={input} onChange={handleInputChange}></Input>
+      <Input value={input} onChange={handleInputChange} />
       <Button type="submit">Search</Button>
     </form>
   );

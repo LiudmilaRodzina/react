@@ -7,6 +7,7 @@ export default {
       md: '768px',
       lg: '1024px',
       xl: '1440px',
+      '2xl': '1536px',
     },
     extend: {},
   },
@@ -17,7 +18,7 @@ export default {
           textShadow: '1px 1px 2px rgba(68, 56, 202, 0.3)',
         },
         '.text-shadow-lg': {
-          textShadow: '2px 2px 4px rgba(68, 56, 202, 0.7)',
+          textShadow: '2px 2px 4px rgba(68, 56, 202)',
         },
       };
       addUtilities(newUtilities, ['responsive', 'hover']);
