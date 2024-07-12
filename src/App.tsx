@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Product } from './interfaces/interfaces';
 import Card from './components/Card';
 import Loader from './components/Loader';
@@ -7,13 +8,26 @@ import Error from './components/Error';
 import { PRODUCTS_API_URL } from './config/api';
 
 const App = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [productList, setProductList] = useState<Product[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [filteredProductList, setFilteredProductList] = useState<Product[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
   const [totalProducts, setTotalProducts] = useState(0);
   const [productsPerPage] = useState(12);
+
+  const getPageNumberFromUrl = useCallback(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const page = parseInt(searchParams.get('page') || '1', 10);
+    return isNaN(page) ? 1 : page;
+  }, [location.search]);
+
+  const [currentPage, setCurrentPage] = useState(getPageNumberFromUrl());
+
+  useEffect(() => {
+    setCurrentPage(getPageNumberFromUrl());
+  }, [getPageNumberFromUrl]);
 
   const fetchProducts = useCallback(async () => {
     setLoading(true);
@@ -25,13 +39,7 @@ const App = () => {
       const result = await response.json();
       setProductList(result.products);
       setTotalProducts(result.total);
-
-      const savedFilteredProductList = localStorage.getItem(
-        'filteredProductList'
-      );
-      savedFilteredProductList
-        ? setFilteredProductList(JSON.parse(savedFilteredProductList))
-        : setFilteredProductList(result.products);
+      setFilteredProductList(result.products);
     } catch (error) {
       setError('Error fetching products. Please try again later');
     } finally {
@@ -63,6 +71,7 @@ const App = () => {
   const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage);
     localStorage.removeItem('filteredProductList');
+    navigate(`?page=${newPage}`);
   };
 
   const totalPages = Math.ceil(totalProducts / productsPerPage);
