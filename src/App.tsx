@@ -1,88 +1,77 @@
-import { useState, useEffect } from 'react';
-import { SHOWS_API_URL } from './config/api';
-import { Show } from './interfaces/interfaces';
+import { useState, useEffect, useCallback } from 'react';
+import { Product } from './interfaces/interfaces';
 import Card from './components/Card';
 import Loader from './components/Loader';
 import SearchBar from './components/SearchBar';
 import Error from './components/Error';
+import { PRODUCTS_API_URL } from './config/api';
 
 const App = () => {
-  const [showDetailsList, setShowDetailsList] = useState<Show[]>([]);
+  const [productList, setProductList] = useState<Product[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-  const [filteredShowDetailsList, setFilteredShowDetailsList] = useState<
-    Show[]
-  >([]);
+  const [filteredProductList, setFilteredProductList] = useState<Product[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalProducts, setTotalProducts] = useState(0);
+  const [productsPerPage] = useState(12);
+
+  const fetchProducts = useCallback(async () => {
+    setLoading(true);
+    const skip = (currentPage - 1) * productsPerPage;
+    try {
+      const response = await fetch(
+        `${PRODUCTS_API_URL}?limit=${productsPerPage}&skip=${skip}`
+      );
+      const result = await response.json();
+      setProductList(result.products);
+      setTotalProducts(result.total);
+
+      const savedFilteredProductList = localStorage.getItem(
+        'filteredProductList'
+      );
+      savedFilteredProductList
+        ? setFilteredProductList(JSON.parse(savedFilteredProductList))
+        : setFilteredProductList(result.products);
+    } catch (error) {
+      setError('Error fetching products. Please try again later');
+    } finally {
+      setLoading(false);
+    }
+  }, [currentPage, productsPerPage]);
 
   useEffect(() => {
-    const fetchShows = async () => {
-      setLoading(true);
-
-      const data = {
-        jsonrpc: '2.0',
-        method: 'shows.Search',
-        params: {
-          query: 'a',
-          limit: 20,
-        },
-        id: 1,
-      };
-
-      try {
-        const response = await fetch(SHOWS_API_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept-Language': 'en',
-          },
-          body: JSON.stringify(data),
-        });
-
-        const result = await response.json();
-        setShowDetailsList(result.result);
-
-        const savedFilteredShowDetailsList = localStorage.getItem(
-          'filteredShowDetailsList'
-        );
-
-        savedFilteredShowDetailsList
-          ? setFilteredShowDetailsList(JSON.parse(savedFilteredShowDetailsList))
-          : setFilteredShowDetailsList(result.result);
-      } catch (error) {
-        setError('Error fetching shows. Please try again later');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchShows();
-  }, []);
+    fetchProducts();
+  }, [fetchProducts]);
 
   const handleCloseError = () => {
     setError(null);
   };
 
   const handleSearch = (input: string) => {
-    const filteredData = showDetailsList.filter((show) =>
-      show.title.toLowerCase().includes(input.toLowerCase().trim())
+    const filteredData = productList.filter((product) =>
+      product.title.toLowerCase().includes(input.toLowerCase().trim())
     );
-    setFilteredShowDetailsList(filteredData);
+    setFilteredProductList(filteredData);
 
-    localStorage.setItem(
-      'filteredShowDetailsList',
-      JSON.stringify(filteredData)
-    );
+    localStorage.setItem('filteredProductList', JSON.stringify(filteredData));
 
     filteredData.length === 0
-      ? setError('No shows found matching your search criteria')
+      ? setError('No products found matching your search criteria')
       : setError(null);
   };
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+    localStorage.removeItem('filteredProductList');
+  };
+
+  const totalPages = Math.ceil(totalProducts / productsPerPage);
 
   return (
     <div className="flex flex-col min-h-screen max-w-screen-xl mx-auto p-2">
       <section className="p-6 pb-0">
-        <h1 className="mb-8 mt-2 text-4xl sm:text-5xl md:text-6xl text-center font-bold text-indigo-300 text-shadow-lg">
-          Discover New Shows!
+        <h1 className="mb-8 mt-2 text-4xl sm:text-5xl md:text-6xl text-center font-bold text-indigo-900 text-shadow-lg">
+          Discover New Products!
         </h1>
         <SearchBar onSearch={handleSearch} />
       </section>
@@ -93,11 +82,28 @@ const App = () => {
             <Loader loading={loading} />
           </div>
         ) : (
-          <ul className="grid grid-cols-1 gap-6 mt-2 list-none sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-            {filteredShowDetailsList.map((show, index) => (
-              <Card key={index} show={show} />
-            ))}
-          </ul>
+          <>
+            <div className="flex flex-wrap justify-center mb-6">
+              {Array.from({ length: totalPages }, (_, index) => (
+                <button
+                  key={index + 1}
+                  className={`px-4 py-2 m-1 rounded shadow-md shadow-indigo-300/60 ${
+                    currentPage === index + 1
+                      ? 'bg-indigo-500 text-white'
+                      : 'bg-indigo-200'
+                  }`}
+                  onClick={() => handlePageChange(index + 1)}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </div>
+            <ul className="grid grid-cols-1 gap-6 mt-2 list-none sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {filteredProductList.map((product, index) => (
+                <Card key={index} product={product} />
+              ))}
+            </ul>
+          </>
         )}
       </section>
 

@@ -12,6 +12,11 @@ const SearchBar = ({ onSearch }: { onSearch: (input: string) => void }) => {
 
   const handleInputChange = (input: string) => {
     setInput(input);
+    if (!input) {
+      onSearch('');
+      localStorage.removeItem('searchQuery');
+      localStorage.removeItem('filteredProductList');
+    }
   };
 
   const handleInputSubmit = (e: React.FormEvent) => {

@@ -1,10 +1,10 @@
-export interface Show {
+export interface Product {
+  id: number;
   title: string;
-  image: string;
-  rating: string;
-  country: string;
-  started: string;
-  totalSeasons: number;
+  description: string;
+  price: number;
+  images: string[];
+  category: string;
 }
 
 export interface NotificationProps {
@@ -24,4 +24,10 @@ export interface InputProps {
   value?: string;
   className?: string;
   onChange: (value: string) => void;
+}
+
+export interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Josefin+Sans:wght@100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100..700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,14 +7,7 @@
 body {
   position: relative;
   font-family: 'Josefin Sans', sans-serif;
-  letter-spacing: 0.5px;
-  color: rgb(199 210 254);
-  /* background-color: rgb(33, 40, 49); */
-  /* background-color: rgb(15, 23, 42); */
-  background-color: rgb(30 41 59);
-}
-
-h1 {
-  font-family: 'Bangers', cursive;
-  letter-spacing: 4px;
+  letter-spacing: 0.2px;
+  background-color: rgb(241 245 249);
+  color: rgb(30 41 59);
 }
