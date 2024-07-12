@@ -1,11 +1,12 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { PRODUCTS_API_URL } from './config/api';
 import { Product } from './interfaces/interfaces';
 import Card from './components/Card';
 import Loader from './components/Loader';
 import SearchBar from './components/SearchBar';
 import Error from './components/Error';
-import { PRODUCTS_API_URL } from './config/api';
+import Pagination from './components/Pagination';
 
 const App = () => {
   const navigate = useNavigate();
@@ -92,21 +93,11 @@ const App = () => {
           </div>
         ) : (
           <>
-            <div className="flex flex-wrap justify-center mb-6">
-              {Array.from({ length: totalPages }, (_, index) => (
-                <button
-                  key={index + 1}
-                  className={`px-4 py-2 m-1 rounded shadow-md shadow-indigo-300/60 ${
-                    currentPage === index + 1
-                      ? 'bg-indigo-500 text-white'
-                      : 'bg-indigo-200'
-                  }`}
-                  onClick={() => handlePageChange(index + 1)}
-                >
-                  {index + 1}
-                </button>
-              ))}
-            </div>
+            <Pagination
+              totalPages={totalPages}
+              currentPage={currentPage}
+              onPageChange={handlePageChange}
+            />
             <ul className="grid grid-cols-1 gap-6 mt-2 list-none sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {filteredProductList.map((product, index) => (
                 <Card key={index} product={product} />
