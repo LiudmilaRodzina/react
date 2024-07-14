@@ -17,7 +17,9 @@ export interface Product {
 }
 
 export interface ProductDetailsProps {
-  product: Product;
+  product: Product | null;
+  loading: boolean;
+  onClose?: () => void;
 }
 
 export interface NotificationProps {

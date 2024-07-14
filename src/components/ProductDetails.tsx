@@ -1,8 +1,19 @@
 import { ProductDetailsProps } from '../interfaces/interfaces';
 
-const ProductDetails = ({ product }: ProductDetailsProps) => {
+const ProductDetails = ({ product, loading, onClose }: ProductDetailsProps) => {
+  if (loading) {
+    return <div data-testid="loader">Loading...</div>;
+  }
+
+  if (!product) {
+    return null;
+  }
+
   return (
     <div className="flex flex-col">
+      <button data-testid="close-button" onClick={onClose}>
+        Close
+      </button>
       <h3 className="font-bold text-2xl self-center mb-2 mt-10 text-indigo-900">
         {product.title}
       </h3>
@@ -26,7 +37,6 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
         <strong>Rating: </strong>
         {product.rating}
       </p>
-
       <p>
         <strong>Dimensions: </strong>
         Depth: {product?.dimensions?.depth ?? 'N/A'}, Height:{' '}
@@ -34,11 +44,11 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
         {product?.dimensions?.width ?? 'N/A'}
       </p>
       <p>
-        <strong>ShippingInformation: </strong>
+        <strong>Shipping Information: </strong>
         {product.shippingInformation}
       </p>
       <p>
-        <strong>WarrantyInformation: </strong>
+        <strong>Warranty Information: </strong>
         {product.warrantyInformation}
       </p>
     </div>

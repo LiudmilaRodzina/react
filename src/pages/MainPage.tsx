@@ -71,7 +71,7 @@ const MainPage = () => {
       setDetails(result);
       navigate(`?page=${currentPage}&details=${product.id}`);
     } catch (error) {
-      console.error('Error fetching product details:', error);
+      setError('Failed to fetch product details. Please try again');
     } finally {
       setDetailsLoading(false);
     }
@@ -145,7 +145,7 @@ const MainPage = () => {
                 {detailsLoading ? (
                   <Loader loading={detailsLoading} />
                 ) : (
-                  <ProductDetails product={details} />
+                  <ProductDetails product={details} loading={false} />
                 )}
               </div>
             )}
