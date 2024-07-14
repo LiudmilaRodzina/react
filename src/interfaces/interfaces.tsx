@@ -5,6 +5,19 @@ export interface Product {
   price: number;
   images: string[];
   category: string;
+  brand: string;
+  rating: string;
+  shippingInformation: string;
+  warrantyInformation: string;
+  dimensions: {
+    depth: number;
+    height: number;
+    width: number;
+  };
+}
+
+export interface ProductDetailsProps {
+  product: Product;
 }
 
 export interface NotificationProps {
@@ -29,5 +42,12 @@ export interface InputProps {
 export interface PaginationProps {
   currentPage: number;
   totalPages: number;
+  disabled?: boolean;
   onPageChange: (page: number) => void;
+}
+
+export interface CardProps {
+  product: Product;
+  onClick: () => void;
+  disabled?: boolean;
 }

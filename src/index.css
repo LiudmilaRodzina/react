@@ -5,9 +5,7 @@
 @tailwind utilities;
 
 body {
-  position: relative;
   font-family: 'Josefin Sans', sans-serif;
-  letter-spacing: 0.2px;
   background-color: rgb(241 245 249);
   color: rgb(30 41 59);
 }

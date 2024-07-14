@@ -1,0 +1,48 @@
+import { ProductDetailsProps } from '../interfaces/interfaces';
+
+const ProductDetails = ({ product }: ProductDetailsProps) => {
+  return (
+    <div className="flex flex-col">
+      <h3 className="font-bold text-2xl self-center mb-2 mt-10 text-indigo-900">
+        {product.title}
+      </h3>
+      <img
+        src={product.images[0]}
+        alt={product.title}
+        className="my-4 w-44 h-44 object-contain self-center"
+      />
+      <p className="mt-2 font-bold self-center text-2xl text-indigo-600">
+        {product.price}
+      </p>
+      <p>
+        <strong>Category: </strong>
+        {product.category}
+      </p>
+      <p>
+        <strong>Brand: </strong>
+        {product.brand ?? 'N/A'}
+      </p>
+      <p>
+        <strong>Rating: </strong>
+        {product.rating}
+      </p>
+
+      <p>
+        <strong>Dimensions: </strong>
+        Depth: {product?.dimensions?.depth ?? 'N/A'}, Height:{' '}
+        {product?.dimensions?.height ?? 'N/A'}, Width:{' '}
+        {product?.dimensions?.width ?? 'N/A'}
+      </p>
+      <p>
+        <strong>ShippingInformation: </strong>
+        {product.shippingInformation}
+      </p>
+      <p>
+        <strong>WarrantyInformation: </strong>
+        {product.warrantyInformation}
+      </p>
+    </div>
+  );
+};
+
+export default ProductDetails;
