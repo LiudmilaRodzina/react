@@ -1,10 +1,25 @@
-export interface Show {
+export interface Product {
+  id: number;
   title: string;
-  image: string;
+  description: string;
+  price: number;
+  images: string[];
+  category: string;
+  brand: string;
   rating: string;
-  country: string;
-  started: string;
-  totalSeasons: number;
+  shippingInformation: string;
+  warrantyInformation: string;
+  dimensions: {
+    depth: number;
+    height: number;
+    width: number;
+  };
+}
+
+export interface ProductDetailsProps {
+  product: Product | null;
+  loading: boolean;
+  onClose?: () => void;
 }
 
 export interface NotificationProps {
@@ -24,4 +39,17 @@ export interface InputProps {
   value?: string;
   className?: string;
   onChange: (value: string) => void;
+}
+
+export interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  disabled?: boolean;
+  onPageChange: (page: number) => void;
+}
+
+export interface CardProps {
+  product: Product;
+  onClick: () => void;
+  disabled?: boolean;
 }

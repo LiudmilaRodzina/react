@@ -8,7 +8,7 @@ const override = {
 const Loader = ({ loading }: { loading: boolean }) => {
   return (
     <FadeLoader
-      color="rgb(165 180 252)"
+      color="rgb(55 48 163)"
       loading={loading}
       cssOverride={override}
     />
