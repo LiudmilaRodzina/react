@@ -53,3 +53,13 @@ export interface CardProps {
   onClick: () => void;
   disabled?: boolean;
 }
+
+export interface CheckboxProps {
+  value: boolean;
+  productId: number;
+  onChange: (id: number) => void;
+}
+
+export interface FlyoutProps {
+  count: number;
+}

@@ -1,0 +1,75 @@
+{
+  "result": [
+    {
+      "scriptId": "1004",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/tests/setup.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 700, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 700, "count": 1 }],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1269",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/tests/Card.test.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 3795, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 3795, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 1132, "endOffset": 1653, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 1201, "endOffset": 1649, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "onClick",
+          "ranges": [{ "startOffset": 1338, "endOffset": 1351, "count": 0 }],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1385",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Card.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 5311, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 5311, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "Card",
+          "ranges": [
+            { "startOffset": 328, "endOffset": 2713, "count": 1 },
+            { "startOffset": 672, "endOffset": 706, "count": 0 }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    }
+  ]
+}

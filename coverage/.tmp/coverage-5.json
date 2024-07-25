@@ -1,0 +1,115 @@
+{
+  "result": [
+    {
+      "scriptId": "1004",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/tests/setup.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 700, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 700, "count": 1 }],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1269",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/tests/Pagination.test.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 4872, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 4872, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "PaginationTestWrapper",
+          "ranges": [{ "startOffset": 903, "endOffset": 1409, "count": 2 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "onPageChange",
+          "ranges": [{ "startOffset": 1021, "endOffset": 1067, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 1444, "endOffset": 2286, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 1508, "endOffset": 2282, "count": 1 }],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1386",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Pagination.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 3951, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 3951, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "Pagination",
+          "ranges": [
+            { "startOffset": 453, "endOffset": 1651, "count": 2 },
+            { "startOffset": 655, "endOffset": 689, "count": 0 }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            { "startOffset": 749, "endOffset": 1461, "count": 10 },
+            { "startOffset": 1082, "endOffset": 1115, "count": 2 },
+            { "startOffset": 1116, "endOffset": 1149, "count": 8 }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "onClick",
+          "ranges": [{ "startOffset": 1172, "endOffset": 1201, "count": 1 }],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1387",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Button.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 2349, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 2349, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "Button",
+          "ranges": [{ "startOffset": 330, "endOffset": 945, "count": 10 }],
+          "isBlockCoverage": true
+        }
+      ]
+    }
+  ]
+}

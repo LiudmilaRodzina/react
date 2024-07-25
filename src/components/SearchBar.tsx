@@ -29,10 +29,12 @@ const SearchBar = ({ onSearch }: { onSearch: (input: string) => void }) => {
   return (
     <form
       onSubmit={handleInputSubmit}
-      className="flex flex-wrap items-center justify-center"
+      className="flex flex-wrap items-center justify-center gap-2"
     >
       <Input value={input} onChange={handleInputChange} />
-      <Button type="submit">Search</Button>
+      <Button type="submit" className="w-40 text-indigo-800 ">
+        Search
+      </Button>
     </form>
   );
 };

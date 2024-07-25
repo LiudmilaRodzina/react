@@ -1,0 +1,400 @@
+{
+  "result": [
+    {
+      "scriptId": "1003",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/tests/setup.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 700, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 700, "count": 1 }],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1269",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/tests/MainPage.test.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 2681, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 2681, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            { "startOffset": 769, "endOffset": 1455, "count": 1 },
+            { "startOffset": 1410, "endOffset": 1454, "count": 0 }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1385",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/pages/MainPage.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 25426, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 25426, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "MainPage",
+          "ranges": [
+            { "startOffset": 1902, "endOffset": 11992, "count": 5 },
+            { "startOffset": 3105, "endOffset": 3109, "count": 0 },
+            { "startOffset": 3110, "endOffset": 3114, "count": 0 },
+            { "startOffset": 3136, "endOffset": 3140, "count": 0 },
+            { "startOffset": 4565, "endOffset": 4606, "count": 0 },
+            { "startOffset": 4607, "endOffset": 4610, "count": 0 },
+            { "startOffset": 6085, "endOffset": 6098, "count": 0 },
+            { "startOffset": 6099, "endOffset": 6650, "count": 0 },
+            { "startOffset": 6651, "endOffset": 11383, "count": 0 },
+            { "startOffset": 11557, "endOffset": 11837, "count": 0 }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            { "startOffset": 2443, "endOffset": 2616, "count": 4 },
+            { "startOffset": 2601, "endOffset": 2604, "count": 0 }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 3181, "endOffset": 3259, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 3304, "endOffset": 3410, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 3461, "endOffset": 3538, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "handleCloseError",
+          "ranges": [{ "startOffset": 3586, "endOffset": 3617, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "handleSearch",
+          "ranges": [{ "startOffset": 3642, "endOffset": 4050, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "handlePageChange",
+          "ranges": [{ "startOffset": 4079, "endOffset": 4160, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "handleItemClick",
+          "ranges": [{ "startOffset": 4188, "endOffset": 4291, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "handleCloseDetails",
+          "ranges": [{ "startOffset": 4322, "endOffset": 4393, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "handleLeftSectionClick",
+          "ranges": [{ "startOffset": 4428, "endOffset": 4537, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 8195, "endOffset": 8792, "count": 0 }],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1451",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/services/productsApi.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 3316, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 3316, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "endpoints",
+          "ranges": [{ "startOffset": 690, "endOffset": 926, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "query",
+          "ranges": [{ "startOffset": 754, "endOffset": 827, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "query",
+          "ranges": [{ "startOffset": 890, "endOffset": 914, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "get",
+          "ranges": [{ "startOffset": 1030, "endOffset": 1057, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "get",
+          "ranges": [{ "startOffset": 1246, "endOffset": 1283, "count": 4 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "get",
+          "ranges": [{ "startOffset": 1402, "endOffset": 1445, "count": 0 }],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1463",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/config/api.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 759, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 759, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "get",
+          "ranges": [{ "startOffset": 340, "endOffset": 372, "count": 1 }],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1464",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/hooks/useSearch.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 2302, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 2302, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "useSearch",
+          "ranges": [{ "startOffset": 337, "endOffset": 803, "count": 4 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 477, "endOffset": 610, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 651, "endOffset": 744, "count": 0 }],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1465",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Card.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 5311, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 5311, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "Card",
+          "ranges": [{ "startOffset": 328, "endOffset": 2713, "count": 0 }],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1466",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Error.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 3739, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 3739, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "Error",
+          "ranges": [{ "startOffset": 448, "endOffset": 1980, "count": 0 }],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1467",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Button.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 2349, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 2349, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "Button",
+          "ranges": [{ "startOffset": 330, "endOffset": 945, "count": 0 }],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1468",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Loader.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 2190, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 2190, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "Loader",
+          "ranges": [{ "startOffset": 530, "endOffset": 946, "count": 0 }],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1473",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/SearchBar.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 5239, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 5239, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "SearchBar",
+          "ranges": [{ "startOffset": 704, "endOffset": 2352, "count": 0 }],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1474",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Input.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 2579, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 2579, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "Input",
+          "ranges": [{ "startOffset": 329, "endOffset": 1028, "count": 0 }],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1475",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Pagination.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 3951, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 3951, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "Pagination",
+          "ranges": [{ "startOffset": 453, "endOffset": 1651, "count": 0 }],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1476",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/ProductDetails.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 9040, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 9040, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "ProductDetails",
+          "ranges": [{ "startOffset": 338, "endOffset": 5092, "count": 0 }],
+          "isBlockCoverage": false
+        }
+      ]
+    }
+  ]
+}
