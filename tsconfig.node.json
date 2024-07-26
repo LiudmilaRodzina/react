@@ -8,8 +8,6 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "noEmit": true,
-
-    // Add this line if it's not already there
     "esModuleInterop": true
   },
   "include": ["vite.config.ts"]

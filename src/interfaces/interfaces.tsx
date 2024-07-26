@@ -51,15 +51,20 @@ export interface PaginationProps {
 export interface CardProps {
   product: Product;
   onClick: () => void;
-  disabled?: boolean;
+  disabled: boolean;
+  isSelected: boolean;
+  onSelect: () => void;
+  onUnselect: () => void;
 }
 
 export interface CheckboxProps {
-  value: boolean;
+  checked: boolean;
   productId: number;
-  onChange: (id: number) => void;
+  onChange: (checked: boolean) => void;
+  onClick: (event: React.MouseEvent) => void;
 }
 
 export interface FlyoutProps {
   count: number;
+  onClearSelectedItems: () => void;
 }
