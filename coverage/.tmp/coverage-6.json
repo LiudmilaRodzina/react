@@ -1,7 +1,7 @@
 {
   "result": [
     {
-      "scriptId": "1003",
+      "scriptId": "1004",
       "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/tests/setup.ts",
       "functions": [
         {
@@ -90,86 +90,103 @@
       "functions": [
         {
           "functionName": "",
-          "ranges": [{ "startOffset": 0, "endOffset": 25426, "count": 1 }],
+          "ranges": [{ "startOffset": 0, "endOffset": 29104, "count": 1 }],
           "isBlockCoverage": true
         },
         {
           "functionName": "",
-          "ranges": [{ "startOffset": 13, "endOffset": 25426, "count": 1 }],
+          "ranges": [{ "startOffset": 13, "endOffset": 29104, "count": 1 }],
           "isBlockCoverage": true
         },
         {
           "functionName": "MainPage",
           "ranges": [
-            { "startOffset": 1902, "endOffset": 11992, "count": 7 },
-            { "startOffset": 3105, "endOffset": 3109, "count": 0 },
-            { "startOffset": 3110, "endOffset": 3114, "count": 0 },
-            { "startOffset": 3136, "endOffset": 3140, "count": 0 },
-            { "startOffset": 4565, "endOffset": 4606, "count": 0 },
-            { "startOffset": 4607, "endOffset": 4610, "count": 0 },
-            { "startOffset": 6085, "endOffset": 6098, "count": 0 },
-            { "startOffset": 6099, "endOffset": 6650, "count": 0 },
-            { "startOffset": 6651, "endOffset": 11383, "count": 0 },
-            { "startOffset": 11557, "endOffset": 11837, "count": 0 }
+            { "startOffset": 2496, "endOffset": 13670, "count": 7 },
+            { "startOffset": 3845, "endOffset": 3849, "count": 0 },
+            { "startOffset": 3850, "endOffset": 3854, "count": 0 },
+            { "startOffset": 3876, "endOffset": 3880, "count": 0 },
+            { "startOffset": 5540, "endOffset": 5581, "count": 0 },
+            { "startOffset": 5582, "endOffset": 5585, "count": 0 },
+            { "startOffset": 6469, "endOffset": 6482, "count": 0 },
+            { "startOffset": 6483, "endOffset": 7050, "count": 0 },
+            { "startOffset": 7051, "endOffset": 12879, "count": 0 },
+            { "startOffset": 13065, "endOffset": 13353, "count": 0 }
           ],
           "isBlockCoverage": true
         },
         {
           "functionName": "",
-          "ranges": [
-            { "startOffset": 2443, "endOffset": 2616, "count": 6 },
-            { "startOffset": 2601, "endOffset": 2604, "count": 0 }
-          ],
-          "isBlockCoverage": true
-        },
-        {
-          "functionName": "",
-          "ranges": [{ "startOffset": 3181, "endOffset": 3259, "count": 0 }],
+          "ranges": [{ "startOffset": 2740, "endOffset": 2784, "count": 0 }],
           "isBlockCoverage": false
         },
         {
           "functionName": "",
-          "ranges": [{ "startOffset": 3304, "endOffset": 3410, "count": 0 }],
+          "ranges": [{ "startOffset": 3211, "endOffset": 3384, "count": 0 }],
           "isBlockCoverage": false
         },
         {
           "functionName": "",
-          "ranges": [{ "startOffset": 3461, "endOffset": 3538, "count": 0 }],
+          "ranges": [{ "startOffset": 3921, "endOffset": 3999, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 4044, "endOffset": 4150, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 4201, "endOffset": 4278, "count": 0 }],
           "isBlockCoverage": false
         },
         {
           "functionName": "handleCloseError",
-          "ranges": [{ "startOffset": 3586, "endOffset": 3617, "count": 0 }],
+          "ranges": [{ "startOffset": 4326, "endOffset": 4357, "count": 0 }],
           "isBlockCoverage": false
         },
         {
           "functionName": "handleSearch",
-          "ranges": [{ "startOffset": 3642, "endOffset": 4050, "count": 0 }],
+          "ranges": [{ "startOffset": 4382, "endOffset": 4790, "count": 0 }],
           "isBlockCoverage": false
         },
         {
           "functionName": "handlePageChange",
-          "ranges": [{ "startOffset": 4079, "endOffset": 4160, "count": 0 }],
+          "ranges": [{ "startOffset": 4819, "endOffset": 4900, "count": 0 }],
           "isBlockCoverage": false
         },
         {
           "functionName": "handleItemClick",
-          "ranges": [{ "startOffset": 4188, "endOffset": 4291, "count": 0 }],
+          "ranges": [{ "startOffset": 4928, "endOffset": 5031, "count": 0 }],
           "isBlockCoverage": false
         },
         {
           "functionName": "handleCloseDetails",
-          "ranges": [{ "startOffset": 4322, "endOffset": 4393, "count": 0 }],
+          "ranges": [{ "startOffset": 5062, "endOffset": 5133, "count": 0 }],
           "isBlockCoverage": false
         },
         {
           "functionName": "handleLeftSectionClick",
-          "ranges": [{ "startOffset": 4428, "endOffset": 4537, "count": 0 }],
+          "ranges": [{ "startOffset": 5168, "endOffset": 5277, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "handleSelectProduct",
+          "ranges": [{ "startOffset": 5309, "endOffset": 5390, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "handleUnselectProduct",
+          "ranges": [{ "startOffset": 5424, "endOffset": 5512, "count": 0 }],
           "isBlockCoverage": false
         },
         {
           "functionName": "",
-          "ranges": [{ "startOffset": 8195, "endOffset": 8792, "count": 0 }],
+          "ranges": [{ "startOffset": 8673, "endOffset": 9570, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "onClearSelectedItems",
+          "ranges": [{ "startOffset": 12344, "endOffset": 12403, "count": 0 }],
           "isBlockCoverage": false
         }
       ]
@@ -210,8 +227,8 @@
         },
         {
           "functionName": "get",
-          "ranges": [{ "startOffset": 1246, "endOffset": 1283, "count": 6 }],
-          "isBlockCoverage": true
+          "ranges": [{ "startOffset": 1246, "endOffset": 1283, "count": 0 }],
+          "isBlockCoverage": false
         },
         {
           "functionName": "get",
@@ -257,17 +274,7 @@
         },
         {
           "functionName": "useSearch",
-          "ranges": [{ "startOffset": 337, "endOffset": 803, "count": 6 }],
-          "isBlockCoverage": true
-        },
-        {
-          "functionName": "",
-          "ranges": [{ "startOffset": 477, "endOffset": 610, "count": 0 }],
-          "isBlockCoverage": false
-        },
-        {
-          "functionName": "",
-          "ranges": [{ "startOffset": 651, "endOffset": 744, "count": 0 }],
+          "ranges": [{ "startOffset": 337, "endOffset": 803, "count": 0 }],
           "isBlockCoverage": false
         }
       ]
@@ -278,23 +285,44 @@
       "functions": [
         {
           "functionName": "",
-          "ranges": [{ "startOffset": 0, "endOffset": 5311, "count": 1 }],
+          "ranges": [{ "startOffset": 0, "endOffset": 7390, "count": 1 }],
           "isBlockCoverage": true
         },
         {
           "functionName": "",
-          "ranges": [{ "startOffset": 13, "endOffset": 5311, "count": 1 }],
+          "ranges": [{ "startOffset": 13, "endOffset": 7390, "count": 1 }],
           "isBlockCoverage": true
         },
         {
           "functionName": "Card",
-          "ranges": [{ "startOffset": 328, "endOffset": 2713, "count": 0 }],
+          "ranges": [{ "startOffset": 449, "endOffset": 3620, "count": 0 }],
           "isBlockCoverage": false
         }
       ]
     },
     {
       "scriptId": "1469",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Checkbox.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 5765, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 5765, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "Checkbox",
+          "ranges": [{ "startOffset": 332, "endOffset": 2699, "count": 0 }],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1470",
       "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Error.tsx",
       "functions": [
         {
@@ -315,7 +343,7 @@
       ]
     },
     {
-      "scriptId": "1470",
+      "scriptId": "1471",
       "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Button.tsx",
       "functions": [
         {
@@ -336,7 +364,7 @@
       ]
     },
     {
-      "scriptId": "1471",
+      "scriptId": "1472",
       "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Loader.tsx",
       "functions": [
         {
@@ -357,28 +385,28 @@
       ]
     },
     {
-      "scriptId": "1476",
+      "scriptId": "1477",
       "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/SearchBar.tsx",
       "functions": [
         {
           "functionName": "",
-          "ranges": [{ "startOffset": 0, "endOffset": 5239, "count": 1 }],
+          "ranges": [{ "startOffset": 0, "endOffset": 5248, "count": 1 }],
           "isBlockCoverage": true
         },
         {
           "functionName": "",
-          "ranges": [{ "startOffset": 13, "endOffset": 5239, "count": 1 }],
+          "ranges": [{ "startOffset": 13, "endOffset": 5248, "count": 1 }],
           "isBlockCoverage": true
         },
         {
           "functionName": "SearchBar",
-          "ranges": [{ "startOffset": 704, "endOffset": 2352, "count": 0 }],
+          "ranges": [{ "startOffset": 704, "endOffset": 2357, "count": 0 }],
           "isBlockCoverage": false
         }
       ]
     },
     {
-      "scriptId": "1477",
+      "scriptId": "1478",
       "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Input.tsx",
       "functions": [
         {
@@ -399,7 +427,7 @@
       ]
     },
     {
-      "scriptId": "1478",
+      "scriptId": "1479",
       "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Pagination.tsx",
       "functions": [
         {
@@ -420,7 +448,7 @@
       ]
     },
     {
-      "scriptId": "1479",
+      "scriptId": "1480",
       "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/ProductDetails.tsx",
       "functions": [
         {
@@ -441,7 +469,131 @@
       ]
     },
     {
-      "scriptId": "1480",
+      "scriptId": "1481",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Flyout.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 8613, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 8613, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "Flyout",
+          "ranges": [{ "startOffset": 714, "endOffset": 3929, "count": 0 }],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1482",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/utils/csvUtils.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 3217, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 3217, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "convertToCSV",
+          "ranges": [{ "startOffset": 327, "endOffset": 674, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "get",
+          "ranges": [{ "startOffset": 776, "endOffset": 804, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "generateCSVUrl",
+          "ranges": [{ "startOffset": 831, "endOffset": 1048, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "get",
+          "ranges": [{ "startOffset": 1152, "endOffset": 1182, "count": 0 }],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1483",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Header.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 2782, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 2782, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "Header",
+          "ranges": [{ "startOffset": 341, "endOffset": 1506, "count": 0 }],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1484",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/store/reducers/selectedItemsSlice.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 3544, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 3544, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "addSelectedItem",
+          "ranges": [{ "startOffset": 527, "endOffset": 601, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "removeSelectedItem",
+          "ranges": [{ "startOffset": 627, "endOffset": 763, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "clearSelectedItems",
+          "ranges": [{ "startOffset": 789, "endOffset": 839, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "get",
+          "ranges": [{ "startOffset": 1047, "endOffset": 1078, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "get",
+          "ranges": [{ "startOffset": 1188, "endOffset": 1222, "count": 0 }],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "get",
+          "ranges": [{ "startOffset": 1332, "endOffset": 1366, "count": 0 }],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1485",
       "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/pages/NotFoundPage.tsx",
       "functions": [
         {

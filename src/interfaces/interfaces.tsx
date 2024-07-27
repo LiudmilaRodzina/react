@@ -67,4 +67,9 @@ export interface CheckboxProps {
 export interface FlyoutProps {
   count: number;
   onClearSelectedItems: () => void;
+  selectedProducts: Product[];
+}
+
+export interface SelectedItemsState {
+  selectedItems: Product[];
 }

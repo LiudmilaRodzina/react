@@ -1,7 +1,7 @@
 {
   "result": [
     {
-      "scriptId": "1004",
+      "scriptId": "1003",
       "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/tests/setup.ts",
       "functions": [
         {
@@ -18,55 +18,73 @@
     },
     {
       "scriptId": "1269",
-      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/tests/Card.test.tsx",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/tests/Error.test.tsx",
       "functions": [
         {
           "functionName": "",
-          "ranges": [{ "startOffset": 0, "endOffset": 3795, "count": 1 }],
+          "ranges": [{ "startOffset": 0, "endOffset": 3753, "count": 1 }],
           "isBlockCoverage": true
         },
         {
           "functionName": "",
-          "ranges": [{ "startOffset": 13, "endOffset": 3795, "count": 1 }],
+          "ranges": [{ "startOffset": 13, "endOffset": 3753, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "onCloseHandler",
+          "ranges": [{ "startOffset": 619, "endOffset": 628, "count": 1 }],
           "isBlockCoverage": true
         },
         {
           "functionName": "",
-          "ranges": [{ "startOffset": 1132, "endOffset": 1653, "count": 1 }],
+          "ranges": [{ "startOffset": 762, "endOffset": 1292, "count": 1 }],
           "isBlockCoverage": true
         },
         {
           "functionName": "",
-          "ranges": [{ "startOffset": 1201, "endOffset": 1649, "count": 1 }],
+          "ranges": [{ "startOffset": 1355, "endOffset": 1767, "count": 1 }],
           "isBlockCoverage": true
-        },
-        {
-          "functionName": "onClick",
-          "ranges": [{ "startOffset": 1338, "endOffset": 1351, "count": 0 }],
-          "isBlockCoverage": false
         }
       ]
     },
     {
       "scriptId": "1385",
-      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Card.tsx",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Error.tsx",
       "functions": [
         {
           "functionName": "",
-          "ranges": [{ "startOffset": 0, "endOffset": 5311, "count": 1 }],
+          "ranges": [{ "startOffset": 0, "endOffset": 3739, "count": 1 }],
           "isBlockCoverage": true
         },
         {
           "functionName": "",
-          "ranges": [{ "startOffset": 13, "endOffset": 5311, "count": 1 }],
+          "ranges": [{ "startOffset": 13, "endOffset": 3739, "count": 1 }],
           "isBlockCoverage": true
         },
         {
-          "functionName": "Card",
-          "ranges": [
-            { "startOffset": 328, "endOffset": 2713, "count": 1 },
-            { "startOffset": 672, "endOffset": 706, "count": 0 }
-          ],
+          "functionName": "Error",
+          "ranges": [{ "startOffset": 448, "endOffset": 1980, "count": 2 }],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1386",
+      "url": "file:///C:/Users/User/Desktop/RSSchool/react/src/components/Button.tsx",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 0, "endOffset": 2349, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [{ "startOffset": 13, "endOffset": 2349, "count": 1 }],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "Button",
+          "ranges": [{ "startOffset": 330, "endOffset": 945, "count": 2 }],
           "isBlockCoverage": true
         }
       ]

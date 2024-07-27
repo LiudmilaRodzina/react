@@ -57,7 +57,6 @@ const MainPage = () => {
 
   const {
     data: productDetails,
-    // error: detailsError,
     isLoading: detailsLoading,
     isFetching: detailsFetching,
   } = useFetchProductDetailsQuery(details?.id || 0, {
@@ -123,8 +122,8 @@ const MainPage = () => {
     }
   };
 
-  const handleSelectProduct = (productId: number) => {
-    dispatch(addSelectedItem(productId));
+  const handleSelectProduct = (product: Product) => {
+    dispatch(addSelectedItem(product));
   };
 
   const handleUnselectProduct = (productId: number) => {
@@ -170,8 +169,10 @@ const MainPage = () => {
                         handleItemClick(product);
                       }}
                       disabled={!!details}
-                      isSelected={selectedProducts.includes(product.id)}
-                      onSelect={() => handleSelectProduct(product.id)}
+                      isSelected={selectedProducts.some(
+                        (p) => p.id === product.id
+                      )}
+                      onSelect={() => handleSelectProduct(product)}
                       onUnselect={() => handleUnselectProduct(product.id)}
                     />
                   ))}
@@ -200,6 +201,7 @@ const MainPage = () => {
                 <Flyout
                   count={selectedProducts.length}
                   onClearSelectedItems={() => dispatch(clearSelectedItems())}
+                  selectedProducts={selectedProducts}
                 />
               )}
             </div>
