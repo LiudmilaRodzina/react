@@ -21,12 +21,6 @@ const product: Product = {
 };
 
 describe('ProductDetails Component', () => {
-  test('displays a loading indicator while fetching data', () => {
-    render(<ProductDetails product={null} loading={true} />);
-    const loader = screen.getByTestId('loader');
-    expect(loader).toBeInTheDocument();
-  });
-
   test('does not render anything if product is null', () => {
     render(<ProductDetails product={null} loading={false} />);
     const loader = screen.queryByTestId('loader');

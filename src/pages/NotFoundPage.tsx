@@ -1,9 +1,6 @@
-import Header from '../components/Header';
-
 const NotFoundPage = () => {
   return (
     <div className="min-h-screen m-auto top-0">
-      <Header />
       <div className="flex flex-col items-center justify-center mt-24 gap-4">
         <h1 className="text-5xl text-center font-bold text-shadow-sm">
           404 - Page Not Found
