@@ -30,23 +30,23 @@ const Flyout = ({
   };
 
   return (
-    <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full p-4 bg-indigo-700 text-indigo-100 z-50">
+    <div className="flyout fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full p-4 z-40">
       <div className="grid grid-cols-1 items-center max-w-7xl mx-auto gap-4 sm:grid-cols-3">
         <Button
           type="button"
-          className="justify-self-center w-32 text-sm text-indigo-800 no-text-shadow shadow-sm md:text-lg"
+          className="justify-self-center w-32 p-1 font-bold sm:p-2 md:text-lg"
           onClick={handleDownload}
         >
           Download
         </Button>
 
-        <p className="justify-self-center text-center text-base text-white text-shadow-lg md:text-2xl">
+        <p className="justify-self-center text-center text-base font-bold text-shadow-sm md:text-2xl">
           Selected items: {count}
         </p>
 
         <Button
           type="button"
-          className="justify-self-center w-32 text-sm text-indigo-800 no-text-shadow shadow-sm md:text-lg"
+          className="justify-self-center w-32 p-1 font-bold sm:p-2 md:text-lg"
           onClick={handleClearSelection}
         >
           Unselect all
@@ -60,9 +60,7 @@ const Flyout = ({
             count === 1 ? `${count}_product.csv` : `${count}_products.csv`
           }
           style={{ display: 'none' }}
-        >
-          Download CSV
-        </a>
+        ></a>
       )}
     </div>
   );

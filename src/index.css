@@ -4,9 +4,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body {
-  font-family: 'Josefin Sans', sans-serif;
-  background-color: rgb(241 245 249);
-  color: rgb(30 41 59);
-}

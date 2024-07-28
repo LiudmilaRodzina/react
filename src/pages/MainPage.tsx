@@ -134,7 +134,7 @@ const MainPage = () => {
 
   return (
     <>
-      <Header></Header>
+      <Header />
       <div className="flex flex-col min-h-screen max-w-screen-xl m-auto">
         <div className="flex-1 p-4 relative">
           <SearchBar onSearch={handleSearch} />
@@ -151,7 +151,7 @@ const MainPage = () => {
                 ></div>
               )}
               <div
-                className={`flex-1 ${details ? 'w-3/4 pr-4 blur-sm' : 'w-full'}`}
+                className={`flex-1 flex-col ${details ? 'w-3/4 pr-4 blur-sm hidden sm:flex' : 'w-full'}`}
                 onClick={handleLeftSectionClick}
               >
                 <Pagination
@@ -179,13 +179,15 @@ const MainPage = () => {
                 </ul>
               </div>
               {details && (
-                <div className="w-1/2 md:w-1/4 bg-indigo-100 p-4 pt-8 relative z-50 rounded-md">
+                <div className="details w-full sm:w-1/2 lg:w-1/4 p-4 pt-8 rounded-md z-20">
                   <Button
                     type="button"
-                    className="flex justify-center items-center absolute top-4 right-2 w-10 h-10 pb-3"
+                    className="w-10 h-10 absolute top-4 right-2"
                     onClick={handleCloseDetails}
                   >
-                    <AiOutlineClose />
+                    <span style={{ transform: 'scale(1.7)' }}>
+                      <AiOutlineClose />
+                    </span>
                   </Button>
                   {detailsLoading ? (
                     <Loader

@@ -6,8 +6,8 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
   }
 
   return (
-    <div className="flex flex-col z-40">
-      <h3 className=" mb-2 mt-10 self-center font-bold text-2xl text-indigo-900">
+    <div className="flex flex-col p-4">
+      <h3 className="mb-2 mt-10 self-center font-bold text-2xl text-shadow-sm">
         {product.title}
       </h3>
       <img
@@ -15,8 +15,8 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
         alt={product.title}
         className="my-4 w-44 h-44 object-contain self-center"
       />
-      <p className="mt-2 self-center font-bold text-2xl text-indigo-600">
-        {product.price}
+      <p className="mt-2 self-center font-bold text-2xl text-shadow-sm">
+        ${product.price}
       </p>
       <p>
         <strong>Category: </strong>

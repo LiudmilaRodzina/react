@@ -1,4 +1,5 @@
 import FadeLoader from 'react-spinners/FadeLoader';
+import { useTheme } from '../hooks/useTheme';
 
 const override = {
   display: 'block',
@@ -12,9 +13,13 @@ const Loader = ({
   isLoading: boolean;
   isFetching: boolean;
 }) => {
+  const { theme } = useTheme();
+  const loaderColor =
+    theme === 'dark' ? 'rgb(199, 210, 254)' : 'rgb(55 48 163)';
+
   return (
     <FadeLoader
-      color="rgb(55 48 163)"
+      color={loaderColor}
       loading={isLoading || isFetching}
       cssOverride={override}
     />

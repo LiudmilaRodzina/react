@@ -1,14 +1,15 @@
+import ThemeToggle from './ThemeToggle';
+
 const Header = () => {
   return (
-    <>
-      <div className="flex justify-center items-center w-full bg-indigo-700 p-4 shadow-md shadow-indigo-300/60">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="mt-2 text-2xl sm:text-3xl md:text-4xl text-center font-bold text-indigo-100 text-shadow-lg">
-            Discover New Products!
-          </h1>
-        </div>
-      </div>
-    </>
+    <div className="header flex justify-center items-center w-full p-4">
+      <div className="max-w-7xl mx-auto text-center">
+        <h1 className="mt-2 text-3xl sm:text-4xl md:text-5xl text-center font-bold text-shadow-lg">
+          Discover New Products!
+        </h1>
+      </div>{' '}
+      <ThemeToggle />
+    </div>
   );
 };
 

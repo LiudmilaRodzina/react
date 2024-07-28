@@ -5,6 +5,11 @@ const Checkbox = ({ checked, onChange, onClick }: CheckboxProps) => {
     onChange(e.target.checked);
   };
 
+  const bgColor = checked
+    ? 'var(--checkbox-checked-bg-color)'
+    : 'var(--checkbox-bg-color)';
+  const textColor = checked ? 'var(--checkbox-checked-text-color)' : 'inherit';
+
   return (
     <label className="absolute top-4 right-4 cursor-pointer" onClick={onClick}>
       <input
@@ -14,11 +19,15 @@ const Checkbox = ({ checked, onChange, onClick }: CheckboxProps) => {
         className="sr-only"
       />
       <div
-        className={`flex justify-center items-center w-8 h-8 rounded shadow-md shadow-indigo-400/30 transition ease-in-out duration-300 hover:-translate-y-1 hover:scale-105 ${checked ? 'bg-indigo-700 text-indigo-100' : 'bg-indigo-300'}`}
+        className={`checkbox flex justify-center items-center w-8 h-8 rounded transition hover:-translate-y-1 hover:scale-105`}
+        style={{
+          backgroundColor: bgColor,
+          color: textColor,
+        }}
       >
         {checked && (
           <svg
-            className="w-6 h-6"
+            className="w-7 h-7"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

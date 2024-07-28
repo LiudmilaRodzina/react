@@ -32,6 +32,7 @@ export interface ButtonProps {
   children?: React.ReactNode;
   className?: string;
   onClick?: () => void;
+  style?: React.CSSProperties;
 }
 
 export interface InputProps {
@@ -39,6 +40,7 @@ export interface InputProps {
   value?: string;
   className?: string;
   onChange: (value: string) => void;
+  style?: React.CSSProperties;
 }
 
 export interface PaginationProps {
@@ -62,12 +64,14 @@ export interface CheckboxProps {
   productId: number;
   onChange: (checked: boolean) => void;
   onClick: (event: React.MouseEvent) => void;
+  style?: React.CSSProperties;
 }
 
 export interface FlyoutProps {
   count: number;
   onClearSelectedItems: () => void;
   selectedProducts: Product[];
+  style?: React.CSSProperties;
 }
 
 export interface SelectedItemsState {
