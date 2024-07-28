@@ -1,8 +1,10 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useEffect, useCallback, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { AiOutlineClose } from 'react-icons/ai';
-import { PRODUCTS_API_URL } from '../config/api';
-import useProducts from './../hooks/useProducts';
+import {
+  useFetchProductsQuery,
+  useFetchProductDetailsQuery,
+} from './../services/productsApi';
 import useSearch from './../hooks/useSearch';
 import Card from './../components/Card';
 import Error from './../components/Error';
@@ -12,16 +14,28 @@ import Button from './../components/Button';
 import Pagination from './../components/Pagination';
 import ProductDetails from './../components/ProductDetails';
 import { Product } from './../interfaces/interfaces';
+import Flyout from '../components/Flyout';
+import Header from '../components/Header';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../store/store';
+import {
+  addSelectedItem,
+  removeSelectedItem,
+  clearSelectedItems,
+} from '../store/reducers/selectedItemsSlice';
 
 const MainPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
+  const selectedProducts = useSelector(
+    (state: RootState) => state.selectedItems.selectedItems
+  );
   const [productsPerPage] = useState(12);
   const [filteredProductList, setFilteredProductList] = useState<Product[]>([]);
   const [details, setDetails] = useState<Product | null>(null);
-  const [detailsLoading, setDetailsLoading] = useState(false);
-  const [, setSearchQuery] = useSearch('');
   const [error, setError] = useState<string | null>(null);
+  const [, setSearchQuery] = useSearch('');
 
   const getPageNumberFromUrl = useCallback(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -31,14 +45,41 @@ const MainPage = () => {
 
   const [currentPage, setCurrentPage] = useState(getPageNumberFromUrl());
 
-  const { productList, loading, totalProducts } = useProducts(
-    currentPage,
-    productsPerPage
-  );
+  const {
+    data,
+    error: fetchError,
+    isLoading,
+    isFetching,
+  } = useFetchProductsQuery({
+    page: currentPage,
+    limit: productsPerPage,
+  });
+
+  const {
+    data: productDetails,
+    isLoading: detailsLoading,
+    isFetching: detailsFetching,
+  } = useFetchProductDetailsQuery(details?.id || 0, {
+    skip: !details?.id,
+  });
 
   useEffect(() => {
-    setFilteredProductList(productList);
-  }, [productList]);
+    if (data) {
+      setFilteredProductList(data.products);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (fetchError) {
+      setError('Error fetching products. Please try again later');
+    }
+  }, [fetchError]);
+
+  useEffect(() => {
+    if (productDetails) {
+      setDetails(productDetails);
+    }
+  }, [productDetails]);
 
   const handleCloseError = () => {
     setError(null);
@@ -46,15 +87,17 @@ const MainPage = () => {
 
   const handleSearch = (input: string) => {
     setSearchQuery(input);
-    const filteredData = productList.filter((product) =>
-      product.title.toLowerCase().includes(input.toLowerCase().trim())
-    );
-    setFilteredProductList(filteredData);
+    if (data) {
+      const filteredData = data.products.filter((product) =>
+        product.title.toLowerCase().includes(input.toLowerCase().trim())
+      );
+      setFilteredProductList(filteredData);
 
-    if (filteredData.length === 0) {
-      setError('No products found matching your search criteria');
-    } else {
-      setError(null);
+      if (filteredData.length === 0) {
+        setError('No products found matching your search criteria');
+      } else {
+        setError(null);
+      }
     }
   };
 
@@ -63,18 +106,9 @@ const MainPage = () => {
     navigate(`?page=${newPage}`);
   };
 
-  const handleItemClick = async (product: Product) => {
-    setDetailsLoading(true);
-    try {
-      const response = await fetch(`${PRODUCTS_API_URL}/${product.id}`);
-      const result = await response.json();
-      setDetails(result);
-      navigate(`?page=${currentPage}&details=${product.id}`);
-    } catch (error) {
-      setError('Failed to fetch product details. Please try again');
-    } finally {
-      setDetailsLoading(false);
-    }
+  const handleItemClick = (product: Product) => {
+    setDetails(product);
+    navigate(`?page=${currentPage}&details=${product.id}`);
   };
 
   const handleCloseDetails = () => {
@@ -88,73 +122,97 @@ const MainPage = () => {
     }
   };
 
-  const totalPages = Math.ceil(totalProducts / productsPerPage);
+  const handleSelectProduct = (product: Product) => {
+    dispatch(addSelectedItem(product));
+  };
+
+  const handleUnselectProduct = (productId: number) => {
+    dispatch(removeSelectedItem(productId));
+  };
+
+  const totalPages = data ? Math.ceil(data.total / productsPerPage) : 0;
 
   return (
-    <div className="flex flex-col min-h-screen max-w-screen-xl mx-auto p-2">
-      <section className="p-6 pb-0">
-        <h1 className="mb-8 mt-2 text-4xl sm:text-5xl md:text-6xl text-center font-bold text-indigo-900 text-shadow-lg">
-          Discover New Products!
-        </h1>
-        <SearchBar onSearch={handleSearch} />
-      </section>
-
-      <section className="flex-1 p-4 relative">
-        {loading ? (
-          <div className="flex justify-center items-center h-full">
-            <Loader loading={loading} />
-          </div>
-        ) : (
-          <div className="flex relative">
-            {details && (
-              <div
-                className="absolute inset-0 z-30"
-                onClick={handleLeftSectionClick}
-              ></div>
-            )}
-            <div
-              className={`flex-1 ${details ? 'w-3/4 pr-4 blur-sm' : 'w-full'}`}
-              onClick={handleLeftSectionClick}
-            >
-              <Pagination
-                totalPages={totalPages}
-                currentPage={currentPage}
-                onPageChange={handlePageChange}
-                disabled={!!details}
-              />
-              <ul className="grid grid-cols-1 gap-6 mt-2 list-none sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {filteredProductList.map((product, index) => (
-                  <Card
-                    key={index}
-                    product={product}
-                    onClick={() => handleItemClick(product)}
-                    disabled={!!details}
-                  />
-                ))}
-              </ul>
+    <>
+      <Header />
+      <div className="flex flex-col min-h-screen max-w-screen-xl m-auto">
+        <div className="flex-1 p-4 relative">
+          <SearchBar onSearch={handleSearch} />
+          {isLoading || isFetching ? (
+            <div className="flex justify-center items-center h-full">
+              <Loader isLoading={isLoading} isFetching={isFetching} />
             </div>
-            {details && (
-              <div className="w-1/2 md:w-1/4 bg-indigo-100 p-4 pt-8 relative z-50 rounded-md">
-                <Button
-                  type="submit"
-                  className="absolute top-4 right-2"
-                  onClick={handleCloseDetails}
-                >
-                  <AiOutlineClose />
-                </Button>
-                {detailsLoading ? (
-                  <Loader loading={detailsLoading} />
-                ) : (
-                  <ProductDetails product={details} loading={false} />
-                )}
+          ) : (
+            <div className="flex relative">
+              {details && (
+                <div
+                  className="absolute inset-0 z-30"
+                  onClick={handleLeftSectionClick}
+                ></div>
+              )}
+              <div
+                className={`flex-1 flex-col ${details ? 'w-3/4 pr-4 blur-sm hidden sm:flex' : 'w-full'}`}
+                onClick={handleLeftSectionClick}
+              >
+                <Pagination
+                  totalPages={totalPages}
+                  currentPage={currentPage}
+                  onPageChange={handlePageChange}
+                  disabled={!!details}
+                />
+                <ul className="grid grid-cols-1 gap-6 mt-2 list-none sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                  {filteredProductList.map((product, index) => (
+                    <Card
+                      key={index}
+                      product={product}
+                      onClick={() => {
+                        handleItemClick(product);
+                      }}
+                      disabled={!!details}
+                      isSelected={selectedProducts.some(
+                        (p) => p.id === product.id
+                      )}
+                      onSelect={() => handleSelectProduct(product)}
+                      onUnselect={() => handleUnselectProduct(product.id)}
+                    />
+                  ))}
+                </ul>
               </div>
-            )}
-          </div>
-        )}
-      </section>
+              {details && (
+                <div className="details w-full sm:w-1/2 lg:w-1/4 p-4 pt-8 rounded-md z-20">
+                  <Button
+                    type="button"
+                    className="w-10 h-10 absolute top-4 right-2"
+                    onClick={handleCloseDetails}
+                  >
+                    <span style={{ transform: 'scale(1.7)' }}>
+                      <AiOutlineClose />
+                    </span>
+                  </Button>
+                  {detailsLoading ? (
+                    <Loader
+                      isLoading={detailsLoading}
+                      isFetching={detailsFetching}
+                    />
+                  ) : (
+                    <ProductDetails product={details} loading={false} />
+                  )}
+                </div>
+              )}
+              {selectedProducts.length > 0 && (
+                <Flyout
+                  count={selectedProducts.length}
+                  onClearSelectedItems={() => dispatch(clearSelectedItems())}
+                  selectedProducts={selectedProducts}
+                />
+              )}
+            </div>
+          )}
+        </div>
 
-      {error && <Error message={error} onClose={handleCloseError} />}
-    </div>
+        {error && <Error message={error} onClose={handleCloseError} />}
+      </div>
+    </>
   );
 };
 

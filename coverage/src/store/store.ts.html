@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Code coverage report for src/hooks/useSearch.tsx</title>
+    <title>Code coverage report for src/store/store.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,19 +19,19 @@
       <div class="pad1">
         <h1>
           <a href="../../index.html">All files</a> /
-          <a href="index.html">src/hooks</a> useSearch.tsx
+          <a href="index.html">src/store</a> store.ts
         </h1>
         <div class="clearfix">
           <div class="fl pad1y space-right2">
-            <span class="strong">88.23% </span>
+            <span class="strong">100% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">15/17</span>
+            <span class="fraction">11/11</span>
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">80% </span>
+            <span class="strong">100% </span>
             <span class="quiet">Branches</span>
-            <span class="fraction">4/5</span>
+            <span class="fraction">1/1</span>
           </div>
 
           <div class="fl pad1y space-right2">
@@ -41,9 +41,9 @@
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">88.23% </span>
+            <span class="strong">100% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">15/17</span>
+            <span class="fraction">11/11</span>
           </div>
         </div>
         <p class="quiet">
@@ -74,57 +74,36 @@
 <a name='L13'></a><a href='#L13'>13</a>
 <a name='L14'></a><a href='#L14'>14</a>
 <a name='L15'></a><a href='#L15'>15</a>
-<a name='L16'></a><a href='#L16'>16</a>
-<a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L16'></a><a href='#L16'>16</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState, useEffect } from 'react';
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { configureStore } from '@reduxjs/toolkit';
+import { productsApi } from '../services/productsApi';
+import selectedItemsReducer from './reducers/selectedItemsSlice';
 &nbsp;
-const useSearch = (initialQuery: string) =&gt; {
-  const [searchQuery, setSearchQuery] = useState(initialQuery);
+export const store = configureStore({
+  reducer: {
+    [productsApi.reducerPath]: productsApi.reducer,
+    selectedItems: selectedItemsReducer,
+  },
+  middleware: (getDefaultMiddleware) =&gt;
+    getDefaultMiddleware().concat(productsApi.middleware),
+});
 &nbsp;
-  useEffect(() =&gt; {
-    const savedQuery = localStorage.getItem('searchQuery');
-    if (savedQuery) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >      setSearchQuery(savedQuery);</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-  }, []);
-&nbsp;
-  useEffect(() =&gt; {
-    return () =&gt; {
-      localStorage.setItem('searchQuery', searchQuery);
-    };
-  }, [searchQuery]);
-&nbsp;
-  return [searchQuery, setSearchQuery] as const;
-};
-&nbsp;
-export default useSearch;
+export type RootState = ReturnType&lt;typeof store.getState&gt;;
+export type AppDispatch = typeof store.dispatch;
 &nbsp;</pre></td></tr></table></pre>
 
       <div class="push"></div>
@@ -139,7 +118,7 @@ export default useSearch;
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2024-07-14T22:10:54.028Z
+      at 2024-07-28T21:09:39.357Z
     </div>
     <script src="../../prettify.js"></script>
     <script>

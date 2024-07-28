@@ -1,20 +1,13 @@
 import { ProductDetailsProps } from '../interfaces/interfaces';
 
-const ProductDetails = ({ product, loading, onClose }: ProductDetailsProps) => {
-  if (loading) {
-    return <div data-testid="loader">Loading...</div>;
-  }
-
+const ProductDetails = ({ product }: ProductDetailsProps) => {
   if (!product) {
     return null;
   }
 
   return (
-    <div className="flex flex-col">
-      <button data-testid="close-button" onClick={onClose}>
-        Close
-      </button>
-      <h3 className="font-bold text-2xl self-center mb-2 mt-10 text-indigo-900">
+    <div className="flex flex-col p-4">
+      <h3 className="mb-2 mt-10 self-center font-bold text-2xl text-shadow-sm">
         {product.title}
       </h3>
       <img
@@ -22,8 +15,8 @@ const ProductDetails = ({ product, loading, onClose }: ProductDetailsProps) => {
         alt={product.title}
         className="my-4 w-44 h-44 object-contain self-center"
       />
-      <p className="mt-2 font-bold self-center text-2xl text-indigo-600">
-        {product.price}
+      <p className="mt-2 self-center font-bold text-2xl text-shadow-sm">
+        ${product.price}
       </p>
       <p>
         <strong>Category: </strong>

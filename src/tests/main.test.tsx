@@ -1,20 +1,19 @@
-import ReactDOM from 'react-dom';
-import { render } from '@testing-library/react';
-import React from 'react';
+import { describe, it, expect } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { ThemeProvider } from '../context/ThemeContext';
 import App from '../App';
+import { store } from '../store/store';
 
-test('renders App component', async () => {
-  const root = document.createElement('div');
-  document.body.appendChild(root);
-
-  ReactDOM.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-    root
-  );
-});
-
-test('renders App component', async () => {
-  render(<App />);
+describe('Main Entry Point', () => {
+  it('renders the App component without crashing', () => {
+    render(
+      <Provider store={store}>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </Provider>
+    );
+    expect(screen.getByText(/Discover New Products!/i)).toBeInTheDocument();
+  });
 });

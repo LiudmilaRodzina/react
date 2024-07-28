@@ -23,7 +23,16 @@ const product: Product = {
 
 describe('Card Component', () => {
   it('renders the relevant card data', () => {
-    render(<Card product={product} onClick={() => {}} />);
+    render(
+      <Card
+        product={product}
+        onClick={() => {}}
+        disabled
+        isSelected
+        onSelect={() => {}}
+        onUnselect={() => {}}
+      />
+    );
     const title = screen.getByText(product.title);
     expect(title).toBeInTheDocument();
   });

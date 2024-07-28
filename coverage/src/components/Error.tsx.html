@@ -25,7 +25,7 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">13/13</span>
+            <span class="fraction">21/21</span>
           </div>
 
           <div class="fl pad1y space-right2">
@@ -43,7 +43,7 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">13/13</span>
+            <span class="fraction">21/21</span>
           </div>
         </div>
         <p class="quiet">
@@ -75,7 +75,16 @@
 <a name='L14'></a><a href='#L14'>14</a>
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
-<a name='L17'></a><a href='#L17'>17</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -84,6 +93,15 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -96,11 +114,20 @@ import Button from './Button';
 &nbsp;
 const Error = ({ message, onClose }: NotificationProps) =&gt; {
   return (
-    &lt;div className="fixed inset-0 flex items-center justify-center"&gt;
-      &lt;div className="fixed inset-0 bg-white opacity-10 z-2"&gt;&lt;/div&gt;
-      &lt;div className="relative p-8 pb-4 text-center text-2xl text-indigo-900 bg-indigo-100 border rounded-xl shadow-md shadow-indigo-300/60"&gt;
+    &lt;div className="flex justify-center items-center fixed inset-0 z-50"&gt;
+      &lt;div className="fixed inset-0 bg-indigo-100 opacity-20"&gt;&lt;/div&gt;
+      &lt;div className="modal flex flex-col items-center relative mx-2 p-8 text-center text-2xl rounded-lg"&gt;
         &lt;p className="mb-6 font-bold text-md"&gt;{message}&lt;/p&gt;
-        &lt;Button onClick={onClose}&gt;Close&lt;/Button&gt;
+        &lt;Button
+          onClick={onClose}
+          className="w-40 p-2 font-bold"
+          style={{
+            backgroundColor: 'var(--button-bg-color)',
+            color: 'var(--button-text-color)',
+          }}
+        &gt;
+          Close
+        &lt;/Button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   );
@@ -121,7 +148,7 @@ export default Error;
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2024-07-14T22:10:54.028Z
+      at 2024-07-28T21:09:39.357Z
     </div>
     <script src="../../prettify.js"></script>
     <script>

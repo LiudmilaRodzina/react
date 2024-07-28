@@ -25,7 +25,7 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">12/12</span>
+            <span class="fraction">17/17</span>
           </div>
 
           <div class="fl pad1y space-right2">
@@ -43,7 +43,7 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">12/12</span>
+            <span class="fraction">17/17</span>
           </div>
         </div>
         <p class="quiet">
@@ -76,7 +76,13 @@
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -86,7 +92,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -95,16 +105,21 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const NotFoundPage = () =&gt; {
   return (
-    &lt;div className="flex flex-col items-center justify-center min-h-screen"&gt;
-      &lt;h1 className="text-5xl text-center font-bold text-indigo-900 text-shadow-lg"&gt;
-        404 - Page Not Found
-      &lt;/h1&gt;
-      &lt;p className="text-lg mb-4 text-center"&gt;
-        Sorry, the page you are looking for does not exist
-      &lt;/p&gt;
-      &lt;a href="/" className="text-indigo-700 underline"&gt;
-        Go back to the homepage
-      &lt;/a&gt;
+    &lt;div className="min-h-screen m-auto top-0"&gt;
+      &lt;div className="flex flex-col items-center justify-center mt-24 gap-4"&gt;
+        &lt;h1 className="text-5xl text-center font-bold text-shadow-sm"&gt;
+          404 - Page Not Found
+        &lt;/h1&gt;
+        &lt;p className="text-lg mb-4 text-center"&gt;
+          Sorry, the page you are looking for does not exist
+        &lt;/p&gt;
+        &lt;a
+          href="/"
+          className="underline transition hover:scale-105 active:scale-100 text-shadow-sm"
+        &gt;
+          Go back to the homepage
+        &lt;/a&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
   );
 };
@@ -124,7 +139,7 @@ export default NotFoundPage;
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2024-07-14T22:10:54.028Z
+      at 2024-07-28T21:09:39.357Z
     </div>
     <script src="../../prettify.js"></script>
     <script>
