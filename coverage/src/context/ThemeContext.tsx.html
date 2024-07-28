@@ -23,15 +23,15 @@
         </h1>
         <div class="clearfix">
           <div class="fl pad1y space-right2">
-            <span class="strong">86.66% </span>
+            <span class="strong">90.47% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">13/15</span>
+            <span class="fraction">19/21</span>
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">50% </span>
+            <span class="strong">60% </span>
             <span class="quiet">Branches</span>
-            <span class="fraction">1/2</span>
+            <span class="fraction">3/5</span>
           </div>
 
           <div class="fl pad1y space-right2">
@@ -41,9 +41,9 @@
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">86.66% </span>
+            <span class="strong">90.47% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">13/15</span>
+            <span class="fraction">19/21</span>
           </div>
         </div>
         <p class="quiet">
@@ -86,7 +86,14 @@
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -99,6 +106,13 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
@@ -113,7 +127,7 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { createContext, useState, ReactNode } from 'react';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { createContext, useState, ReactNode, useEffect } from 'react';
 &nbsp;
 type ThemeContextType = {
   isDarkMode: boolean;
@@ -126,7 +140,14 @@ export const ThemeContext = createContext&lt;ThemeContextType | undefined&gt;(
 );
 &nbsp;
 export const ThemeProvider = ({ children }: { children: ReactNode }) =&gt; {
-  const [isDarkMode, setIsDarkMode] = useState&lt;boolean&gt;(false);
+  const [isDarkMode, setIsDarkMode] = useState&lt;boolean&gt;(() =&gt; {
+    const savedTheme = localStorage.getItem('isDarkMode');
+    return <span class="branch-0 cbranch-no" title="branch not covered" >savedTheme ? JSON.parse(savedTheme) : f</span>alse;
+  });
+&nbsp;
+  useEffect(() =&gt; {
+    localStorage.setItem('isDarkMode', JSON.stringify(isDarkMode));
+  }, [isDarkMode]);
 &nbsp;
   const toggleTheme = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    setIsDarkMode((prevMode) =&gt; !prevMode);</span>
@@ -154,7 +175,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) =&gt; {
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2024-07-28T20:06:29.432Z
+      at 2024-07-28T20:50:20.829Z
     </div>
     <script src="../../prettify.js"></script>
     <script>
