@@ -23,9 +23,10 @@ const Card = ({
 
   return (
     <li
-      className={`card flex flex-col justify-between items-center relative p-4 rounded-lg transition cursor-pointer hover:-translate-y-1 hover:scale-103 ${
-        disabled ? 'pointer-events-none opacity-80' : ''
-      }`}
+      className={`card flex flex-col justify-between items-center relative p-4 rounded-lg transition cursor-pointer hover:-translate-y-1 hover:scale-103
+        ${disabled ? 'pointer-events-none opacity-80' : ''}
+
+      `}
       onClick={onClick}
     >
       <div className="flex flex-col items-center">

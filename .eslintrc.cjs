@@ -7,14 +7,10 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'next.config.mjs'],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh', 'react-compiler', 'prettier'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
     '@typescript-eslint/no-explicit-any': 'error',
     'react-compiler/react-compiler': 'error',
   },
@@ -22,7 +18,7 @@ module.exports = {
     {
       files: ['src/*.tsx'],
       rules: {
-        'no-console': 1,
+        'no-console': ['warn', { allow: ['warn', 'error'] }],
       },
       noInlineConfig: true,
     },

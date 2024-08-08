@@ -11,7 +11,7 @@ const Input = ({
       placeholder={placeholder}
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className={`${className} input p-1 px-4 sm:px-4 sm:p-2 mx-4 text-xl border rounded-lg transition focus:outline-none hover:scale-105`}
+      className={`${className} input p-1 px-4 sm:px-4 sm:p-3 mx-4 text-xl border rounded-lg transition focus:outline-none hover:scale-105`}
     />
   );
 };

@@ -1,12 +1,9 @@
+import { Product, SelectedItemsState } from '@/interfaces/interfaces';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Product } from '../../interfaces/interfaces';
-
-interface SelectedItemsState {
-  selectedItems: Product[];
-}
+import { HYDRATE } from 'next-redux-wrapper';
 
 const initialState: SelectedItemsState = {
-  selectedItems: JSON.parse(localStorage.getItem('selectedItems') || '[]'),
+  selectedItems: [],
 };
 
 const selectedItemsSlice = createSlice({
@@ -14,28 +11,30 @@ const selectedItemsSlice = createSlice({
   initialState,
   reducers: {
     addSelectedItem: (state, action: PayloadAction<Product>) => {
-      const product = action.payload;
-      if (!state.selectedItems.some((item) => item.id === product.id)) {
-        state.selectedItems.push(product);
-        localStorage.setItem(
-          'selectedItems',
-          JSON.stringify(state.selectedItems)
-        );
-      }
+      state.selectedItems.push(action.payload);
     },
     removeSelectedItem: (state, action: PayloadAction<number>) => {
       state.selectedItems = state.selectedItems.filter(
         (item) => item.id !== action.payload
       );
-      localStorage.setItem(
-        'selectedItems',
-        JSON.stringify(state.selectedItems)
-      );
     },
     clearSelectedItems: (state) => {
       state.selectedItems = [];
-      localStorage.removeItem('selectedItems');
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(
+      HYDRATE,
+      (
+        state,
+        action: { type: typeof HYDRATE; payload: SelectedItemsState }
+      ) => {
+        return {
+          ...state,
+          ...action.payload.selectedItems,
+        };
+      }
+    );
   },
 });
 

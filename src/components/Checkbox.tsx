@@ -19,7 +19,7 @@ const Checkbox = ({ checked, onChange, onClick }: CheckboxProps) => {
         className="sr-only"
       />
       <div
-        className={`checkbox flex justify-center items-center w-8 h-8 rounded transition hover:-translate-y-1 hover:scale-105`}
+        className={`checkbox flex justify-center items-center size-8 rounded transition hover:-translate-y-1 hover:scale-105`}
         style={{
           backgroundColor: bgColor,
           color: textColor,

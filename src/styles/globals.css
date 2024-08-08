@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --indigo-50: rgb(238, 242, 255);
+  --indigo-100: rgb(224, 231, 255);
+  --indigo-200: rgb(199, 210, 254);
+  --indigo-300: rgb(165, 180, 252);
+  --indigo-400: rgb(129, 140, 248);
+  --indigo-500: rgb(99, 102, 241);
+  --indigo-600: rgb(79, 70, 229);
+  --indigo-700: rgb(67, 56, 202);
+  --indigo-800: rgb(55, 48, 163);
+  --indigo-900: rgb(49, 46, 129);
+  --indigo-950: rgb(30, 27, 75);
+  --slate-100: rgb(241, 245, 249);
+  --slate-700: rgb(51, 65, 85, 0.3);
+
+  --transition: ease-in-out 0.5s;
+
+  --box-shadow: 0px 1px 2px 0px var(--indigo-400);
+
+  --button-bg-color: var(--indigo-700);
+  --button-text-color: var(--indigo-50);
+
+  --input-bg-color: var(--indigo-50);
+  --input-placeholder-color: var(--indigo-300);
+
+  --pagination-bg-color: var(--indigo-200);
+  --pagination-active-bg-color: var(--indigo-700);
+  --pagination-active-text-color: var(--indigo-100);
+
+  --checkbox-bg-color: var(--indigo-200);
+  --checkbox-checked-bg-color: var(--indigo-700);
+  --checkbox-checked-text-color: var(--indigo-100);
+
+  --loader-color: var(--indigo-800);
+}
+
+.dark {
+  --button-bg-color: var(--indigo-200);
+  --button-text-color: var(--indigo-900);
+
+  --input-bg-color: var(--indigo-900);
+  --input-placeholder-color: var(--indigo-600);
+
+  --pagination-bg-color: var(--indigo-700);
+  --pagination-active-bg-color: var(--indigo-200);
+  --pagination-active-text-color: var(--indigo-900);
+
+  --checkbox-bg-color: var(--indigo-700);
+  --checkbox-checked-bg-color: var(--indigo-200);
+  --checkbox-checked-text-color: var(--indigo-900);
+
+  --loader-color: var(--indigo-200);
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: var(--indigo-50);
+  color: var(--indigo-900);
+}
+
+.dark body {
+  background-color: var(--indigo-950);
+  color: var(--indigo-200);
+}
+
+.header,
+.flyout,
+.modal,
+.details {
+  background-color: var(--indigo-200);
+  color: var(--indigo-800);
+}
+
+.dark .header,
+.dark .flyout,
+.dark .modal,
+.dark .details {
+  background-color: var(--indigo-900);
+  color: var(--indigo-200);
+}
+
+.card {
+  background-color: var(--slate-100);
+}
+
+.dark .card {
+  background-color: var(--slate-700);
+}
+
+.button {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+}
+
+.header,
+.flyout,
+.modal,
+.card,
+.pagination,
+.button,
+.input,
+.checkbox {
+  box-shadow: var(--box-shadow);
+}
+
+.input {
+  background-color: var(--input-bg-color);
+}
+
+input::placeholder {
+  color: var(--input-placeholder-color) !important;
+}
+
+.text-shadow-sm {
+  text-shadow: 0.5px 0.5px 1px var(--indigo-700);
+}
+
+.text-shadow-lg {
+  text-shadow:
+    1px 1px 3px var(--indigo-800),
+    1px 1px 2px var(--indigo-200);
+}
+
+.icon-theme {
+  font-size: 32px;
+  margin: 5px;
+  transition: var(--transition);
+  cursor: pointer;
+}

@@ -1,34 +1,13 @@
-import { createContext, useState, ReactNode, useEffect } from 'react';
+'use client';
 
-type ThemeContextType = {
-  isDarkMode: boolean;
-  theme: string;
-  toggleTheme: () => void;
-};
+import { ThemeProvider } from 'next-themes';
 
-export const ThemeContext = createContext<ThemeContextType | undefined>(
-  undefined
-);
-
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
-    const savedTheme = localStorage.getItem('isDarkMode');
-    return savedTheme ? JSON.parse(savedTheme) : false;
-  });
-
-  useEffect(() => {
-    localStorage.setItem('isDarkMode', JSON.stringify(isDarkMode));
-  }, [isDarkMode]);
-
-  const toggleTheme = () => {
-    setIsDarkMode((prevMode) => !prevMode);
-  };
-
-  const theme = isDarkMode ? 'dark' : '';
-
+const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ThemeContext.Provider value={{ isDarkMode, theme, toggleTheme }}>
-      <div className={theme}>{children}</div>
-    </ThemeContext.Provider>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      {children}
+    </ThemeProvider>
   );
 };
+
+export default Providers;

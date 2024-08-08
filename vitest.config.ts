@@ -6,13 +6,13 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     globals: true,
-    setupFiles: 'src/tests/setup.ts',
+    setupFiles: 'src/__tests__/setup.ts',
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
       include: ['src/**/*.{ts,tsx}'],
       all: true,
-      exclude: ['**/types.ts', 'src/utils/**/*', 'src/tests/**/*'],
+      exclude: ['src/__tests__/**/*'],
       thresholds: {
         statements: 80,
         branches: 80,
