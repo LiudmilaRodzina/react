@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import Loader from './../components/Loader';
 import Providers from './../context/ThemeContext';
 import { store, wrapper } from './../store/store';
-import ErrorBoundary from './../components/ErrorBoundary';
 import { Provider } from 'react-redux';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -36,21 +35,16 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [pageProps]);
 
   return (
-    <>
-      {' '}
-      <Provider store={store}>
-        <ErrorBoundary>
-          <Providers>
-            {loading && (
-              <div className="fixed inset-0 flex items-center justify-center z-50">
-                <Loader loading={loading} />
-              </div>
-            )}
-            <Component {...pageProps} />
-          </Providers>
-        </ErrorBoundary>
-      </Provider>
-    </>
+    <Provider store={store}>
+      <Providers>
+        {loading && (
+          <div className="fixed inset-0 flex items-center justify-center z-50">
+            <Loader loading={loading} />
+          </div>
+        )}
+        <Component {...pageProps} />
+      </Providers>
+    </Provider>
   );
 }
 

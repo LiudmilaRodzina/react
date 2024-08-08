@@ -1,4 +1,4 @@
-import MainContainer from '@/components/MainContainer';
+import MainLayout from '@/components/MainLayout';
 import MainPage from '@/components/MainPage';
 import { PRODUCTS_API_URL } from '@/config/api';
 import { PRODUCTS_PER_PAGE } from '@/constants/constants';
@@ -12,13 +12,13 @@ const Home = ({
 }: HomeProps) => {
   return (
     <>
-      <MainContainer>
+      <MainLayout>
         <MainPage
           initialProducts={initialProducts}
           initialCurrentPage={initialCurrentPage}
           totalProducts={totalProducts}
         />
-      </MainContainer>
+      </MainLayout>
     </>
   );
 };

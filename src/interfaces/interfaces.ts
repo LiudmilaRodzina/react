@@ -12,7 +12,7 @@ export interface MainPageProps {
   totalProducts: number;
 }
 
-export interface MainContainerProps {
+export interface MainLayoutProps {
   children: ReactNode;
 }
 
@@ -108,11 +108,4 @@ export interface FlyoutProps {
 
 export interface SelectedItemsState {
   selectedItems: Product[];
-}
-
-export interface ErrorBoundaryProps {
-  children: React.ReactNode;
-}
-export interface ErrorBoundaryState {
-  hasError: boolean;
 }

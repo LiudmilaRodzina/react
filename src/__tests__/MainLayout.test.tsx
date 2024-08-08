@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
-import MainContainer from '../components/MainContainer';
+import MainLayout from './../components/MainLayout';
 
-describe('MainContainer', () => {
+describe('MainLayout', () => {
   it('renders Header and children', () => {
     render(
-      <MainContainer>
+      <MainLayout>
         <div>Test Child Component</div>
-      </MainContainer>
+      </MainLayout>
     );
 
     expect(screen.getByRole('heading')).toBeInTheDocument();

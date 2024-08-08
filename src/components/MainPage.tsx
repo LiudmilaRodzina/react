@@ -50,8 +50,10 @@ const MainPage = ({ initialCurrentPage, totalProducts }: MainPageProps) => {
   }, [router.query.page, setCurrentPage]);
 
   const handleItemClick = (product: Product) => {
+    const currentPage = router.query.page ? Number(router.query.page) : 1;
+
     setDetails(product);
-    const detailsUrl = `/?page=${router.query.page}&details=${product.id}&query=${searchQuery}`;
+    const detailsUrl = `/?page=${currentPage}&details=${product.id}&query=${searchQuery}`;
     router.push(detailsUrl, undefined, { shallow: true });
   };
 
