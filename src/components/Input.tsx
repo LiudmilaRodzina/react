@@ -1,7 +1,7 @@
 import { InputProps } from '../interfaces/interfaces';
 
 const Input = ({
-  placeholder = 'Type to search...',
+  placeholder = 'Type to search',
   value,
   onChange,
   className = '',

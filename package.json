@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 1 --fix",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "format": "prettier . --check",
     "format:fix": "prettier . --write",
     "prepare": "husky .husky",
@@ -59,7 +59,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,ts,tsx}": [
-      "eslint --ext ts,tsx --report-unused-disable-directives --max-warnings 1 --fix",
+      "eslint --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
       "prettier --write"
     ]
   },

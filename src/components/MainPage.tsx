@@ -41,7 +41,7 @@ const MainPage = ({ initialCurrentPage, totalProducts }: MainPageProps) => {
     if (savedQuery) {
       setSearchQuery(savedQuery);
     }
-  }, []);
+  }, [setSearchQuery]);
 
   useEffect(() => {
     if (router.query.page) {

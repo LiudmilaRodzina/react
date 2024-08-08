@@ -39,11 +39,9 @@ const Flyout = ({
         >
           Download
         </Button>
-
         <p className="justify-self-center text-center text-base font-bold text-shadow-sm md:text-2xl">
           Selected items: {count}
         </p>
-
         <Button
           type="button"
           className="justify-self-center w-32 p-1 font-bold sm:p-2 sm:pt-3 md:text-lg"

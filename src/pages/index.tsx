@@ -1,8 +1,8 @@
-import MainLayout from '@/components/MainLayout';
-import MainPage from '@/components/MainPage';
-import { PRODUCTS_API_URL } from '@/config/api';
-import { PRODUCTS_PER_PAGE } from '@/constants/constants';
-import { HomeProps } from '@/interfaces/interfaces';
+import MainLayout from './../components/MainLayout';
+import MainPage from './../components/MainPage';
+import { PRODUCTS_API_URL } from './../config/api';
+import { PRODUCTS_PER_PAGE } from './../constants/constants';
+import { HomeProps } from './../interfaces/interfaces';
 import { GetServerSidePropsContext } from 'next';
 
 const Home = ({
