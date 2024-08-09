@@ -1,4 +1,4 @@
-import { PRODUCTS_API_URL } from '../config/api';
+import { PRODUCTS_API_URL } from '../services/api/api';
 
 describe('API Configuration', () => {
   test('PRODUCTS_API_URL is defined correctly', () => {

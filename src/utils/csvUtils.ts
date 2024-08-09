@@ -1,4 +1,4 @@
-import { PRODUCTS_API_URL } from './../config/api';
+import { PRODUCTS_API_URL } from '../services/api/api';
 import { Product } from '../interfaces/interfaces';
 
 export const convertToCSV = (data: Product[]): string => {

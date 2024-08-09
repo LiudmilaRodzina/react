@@ -128,8 +128,8 @@ input::placeholder {
 }
 
 .icon-theme {
-  font-size: 32px;
+  display: block;
+  height: 36px;
+  width: 36px;
   margin: 5px;
-  transition: var(--transition);
-  cursor: pointer;
 }

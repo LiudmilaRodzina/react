@@ -27,21 +27,28 @@ const ThemeToggle = () => {
 
   if (resolvedTheme === 'dark') {
     return (
-      <FontAwesomeIcon
-        icon={faSun}
-        onClick={() => setTheme('light')}
-        className="icon-theme"
-      />
+      <div className="transition hover:scale-105 cursor-pointer">
+        <FontAwesomeIcon
+          data-testid="sun-icon"
+          icon={faSun}
+          onClick={() => setTheme('light')}
+          className="icon-theme"
+          focusable={true}
+        />
+      </div>
     );
   }
 
   if (resolvedTheme === 'light') {
     return (
-      <FontAwesomeIcon
-        icon={faMoon}
-        onClick={() => setTheme('dark')}
-        className="icon-theme"
-      />
+      <div className="transition hover:scale-105 cursor-pointer">
+        <FontAwesomeIcon
+          data-testid="moon-icon"
+          icon={faMoon}
+          onClick={() => setTheme('dark')}
+          className="icon-theme"
+        />
+      </div>
     );
   }
 };

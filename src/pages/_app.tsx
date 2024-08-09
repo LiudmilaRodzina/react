@@ -3,9 +3,10 @@ import { AppProps } from 'next/app';
 import Router from 'next/router';
 import { useEffect, useState } from 'react';
 import Loader from './../components/Loader';
-import Providers from './../context/ThemeContext';
+import Providers from '../services/context/ThemeContext';
 import { store, wrapper } from './../store/store';
 import { Provider } from 'react-redux';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(true);
@@ -35,16 +36,32 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [pageProps]);
 
   return (
-    <Provider store={store}>
-      <Providers>
-        {loading && (
-          <div className="fixed inset-0 flex items-center justify-center z-50">
-            <Loader loading={loading} />
-          </div>
-        )}
-        <Component {...pageProps} />
-      </Providers>
-    </Provider>
+    <>
+      <Provider store={store}>
+        <Head>
+          <meta charSet="UTF-8" />
+          <meta content="width=device-width, initial-scale=1" name="viewport" />
+          <meta
+            name="description"
+            content="RSSchool learning project: React Routing, Redux, Redux Toolkit, RTK Query, Context Api, Next.js Pages Api, Next.js App Router App, Remix"
+          />
+          <meta
+            name="keywords"
+            content="rolling scopes school, rsschool, react, nextjs, remix"
+          ></meta>
+          <link rel="icon" href="/favicon.svg" />
+          <title>Products</title>
+        </Head>
+        <Providers>
+          {loading && (
+            <div className="fixed inset-0 flex items-center justify-center z-50">
+              <Loader loading={loading} />
+            </div>
+          )}
+          <Component {...pageProps} />
+        </Providers>
+      </Provider>
+    </>
   );
 }
 
