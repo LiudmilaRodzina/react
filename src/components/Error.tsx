@@ -1,7 +1,7 @@
-import { NotificationProps } from '../interfaces/interfaces';
+import { ErrorProps } from '../interfaces/interfaces';
 import Button from './Button';
 
-const Error = ({ message, onClose }: NotificationProps) => {
+const Error = ({ message, onClose }: ErrorProps) => {
   return (
     <div className="flex justify-center items-center fixed inset-0 z-50">
       <div className="fixed inset-0 bg-indigo-100 opacity-20"></div>

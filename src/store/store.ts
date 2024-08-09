@@ -1,15 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { productsApi } from '../services/productsApi';
+import { createWrapper } from 'next-redux-wrapper';
 import selectedItemsReducer from './reducers/selectedItemsSlice';
 
 export const store = configureStore({
   reducer: {
-    [productsApi.reducerPath]: productsApi.reducer,
     selectedItems: selectedItemsReducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(productsApi.middleware),
 });
 
+export const wrapper = createWrapper(() => store);
 export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;

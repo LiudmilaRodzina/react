@@ -1,27 +1,18 @@
 import FadeLoader from 'react-spinners/FadeLoader';
-import { useTheme } from '../hooks/useTheme';
+import { CSSProperties } from 'react';
 
-const override = {
+const override: CSSProperties = {
   display: 'block',
   margin: '100px auto',
 };
 
-const Loader = ({
-  isLoading,
-  isFetching,
-}: {
-  isLoading: boolean;
-  isFetching: boolean;
-}) => {
-  const { theme } = useTheme();
-  const loaderColor =
-    theme === 'dark' ? 'rgb(199, 210, 254)' : 'rgb(55 48 163)';
-
+const Loader = ({ loading }: { loading: boolean }) => {
   return (
     <FadeLoader
-      color={loaderColor}
-      loading={isLoading || isFetching}
+      className="loader"
+      loading={loading}
       cssOverride={override}
+      color="var(--loader-color)"
     />
   );
 };

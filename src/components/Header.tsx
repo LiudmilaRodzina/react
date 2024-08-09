@@ -1,3 +1,4 @@
+import React from 'react';
 import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
@@ -7,7 +8,7 @@ const Header = () => {
         <h1 className="mt-2 text-3xl sm:text-4xl md:text-5xl text-center font-bold text-shadow-lg">
           Discover New Products!
         </h1>
-      </div>{' '}
+      </div>
       <ThemeToggle />
     </div>
   );

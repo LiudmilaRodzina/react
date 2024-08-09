@@ -1,23 +1,56 @@
-import { useTheme } from '../hooks/useTheme';
+'use client';
+
+import { useTheme } from 'next-themes';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
-import Button from './Button';
 
 const ThemeToggle = () => {
-  const { isDarkMode, toggleTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const { setTheme, resolvedTheme } = useTheme();
 
-  return (
-    <Button
-      onClick={toggleTheme}
-      className="w-10 h-10 flex items-center justify-center ml-4 rounded-full"
-      style={{
-        backgroundColor: 'var(--button-bg-color)',
-        color: 'var(--button-text-color)',
-      }}
-    >
-      <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
-    </Button>
-  );
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted)
+    return (
+      <Image
+        src="data:image/svg+xml;base64,PHN2ZyBzdHJva2U9IiNGRkZGRkYiIGZpbGw9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMCIgdmlld0JveD0iMCAwIDI0IDI0IiBoZWlnaHQ9IjIwMHB4IiB3aWR0aD0iMjAwcHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB4PSIyIiB5PSIyIiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjIiIHJ4PSIyIj48L3JlY3Q+PC9zdmc+Cg=="
+        width={36}
+        height={36}
+        sizes="36x36"
+        alt="Loading Light/Dark Toggle"
+        priority={false}
+        title="Loading Light/Dark Toggle"
+      />
+    );
+
+  if (resolvedTheme === 'dark') {
+    return (
+      <div className="transition hover:scale-105 cursor-pointer">
+        <FontAwesomeIcon
+          data-testid="sun-icon"
+          icon={faSun}
+          onClick={() => setTheme('light')}
+          className="icon-theme"
+          focusable={true}
+        />
+      </div>
+    );
+  }
+
+  if (resolvedTheme === 'light') {
+    return (
+      <div className="transition hover:scale-105 cursor-pointer">
+        <FontAwesomeIcon
+          data-testid="moon-icon"
+          icon={faMoon}
+          onClick={() => setTheme('dark')}
+          className="icon-theme"
+        />
+      </div>
+    );
+  }
 };
 
 export default ThemeToggle;

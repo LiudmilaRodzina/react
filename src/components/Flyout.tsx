@@ -1,5 +1,5 @@
+import { generateCSVUrl } from './../utils/csvUtils';
 import { FlyoutProps } from '../interfaces/interfaces';
-import { generateCSVUrl } from '../utils/csvUtils';
 import Button from './Button';
 import { useEffect, useRef, useState } from 'react';
 
@@ -34,19 +34,17 @@ const Flyout = ({
       <div className="grid grid-cols-1 items-center max-w-7xl mx-auto gap-4 sm:grid-cols-3">
         <Button
           type="button"
-          className="justify-self-center w-32 p-1 font-bold sm:p-2 md:text-lg"
+          className="justify-self-center w-32 p-1 font-bold sm:p-2 sm:pt-3 md:text-lg"
           onClick={handleDownload}
         >
           Download
         </Button>
-
         <p className="justify-self-center text-center text-base font-bold text-shadow-sm md:text-2xl">
           Selected items: {count}
         </p>
-
         <Button
           type="button"
-          className="justify-self-center w-32 p-1 font-bold sm:p-2 md:text-lg"
+          className="justify-self-center w-32 p-1 font-bold sm:p-2 sm:pt-3 md:text-lg"
           onClick={handleClearSelection}
         >
           Unselect all

@@ -1,4 +1,4 @@
-import { PRODUCTS_API_URL } from '../config/api';
+import { PRODUCTS_API_URL } from '../services/api/api';
 import { Product } from '../interfaces/interfaces';
 
 export const convertToCSV = (data: Product[]): string => {
@@ -10,7 +10,7 @@ export const convertToCSV = (data: Product[]): string => {
         `${item.title},${item.price},${item.description.replace(
           /,/g,
           ' '
-        )},${PRODUCTS_API_URL}/products/${item.id}`
+        )},'${PRODUCTS_API_URL}products/${item.id}`
     )
     .join('\n');
   return header + rows;
