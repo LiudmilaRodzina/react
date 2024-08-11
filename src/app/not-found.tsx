@@ -1,7 +1,8 @@
 import Header from './../components/Header';
 import Link from 'next/link';
 
-const Page404 = () => {
+const Page404 = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   return (
     <>
       <Header />

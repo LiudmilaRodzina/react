@@ -8,7 +8,7 @@ const useSearch = (initialQuery: string) => {
     if (savedQuery) {
       setSearchQuery(savedQuery);
     }
-  }, []);
+  }, [setSearchQuery]);
 
   useEffect(() => {
     localStorage.setItem('searchQuery', searchQuery);

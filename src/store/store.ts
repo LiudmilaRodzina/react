@@ -1,12 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { createWrapper } from 'next-redux-wrapper';
 import selectedItemsReducer from './reducers/selectedItemsSlice';
+import { configureStore } from '@reduxjs/toolkit';
 
-export const store = configureStore({
-  reducer: {
-    selectedItems: selectedItemsReducer,
-  },
-});
+export const store = () =>
+  configureStore({
+    reducer: {
+      selectedItems: selectedItemsReducer,
+    },
+  });
 
-export const wrapper = createWrapper(() => store);
-export type RootState = ReturnType<typeof store.getState>;
+export type AppStore = ReturnType<typeof store>;
+export type RootState = ReturnType<AppStore['getState']>;
+export type AppDispatch = AppStore['dispatch'];

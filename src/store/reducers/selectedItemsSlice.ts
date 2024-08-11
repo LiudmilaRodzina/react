@@ -1,3 +1,5 @@
+'use client';
+
 import { Product, SelectedItemsState } from '@/interfaces/interfaces';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';

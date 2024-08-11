@@ -3,13 +3,12 @@ import { CSSProperties } from 'react';
 
 const override: CSSProperties = {
   display: 'block',
-  margin: '100px auto',
+  margin: '200px auto',
 };
 
-const Loader = ({ loading }: { loading: boolean }) => {
+const Loading = ({ loading }: { loading: boolean }) => {
   return (
     <FadeLoader
-      className="loader"
       loading={loading}
       cssOverride={override}
       color="var(--loader-color)"
@@ -17,4 +16,4 @@ const Loader = ({ loading }: { loading: boolean }) => {
   );
 };
 
-export default Loader;
+export default Loading;

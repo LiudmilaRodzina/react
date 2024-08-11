@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Product } from './../interfaces/interfaces';
 import { PRODUCTS_PER_PAGE } from './../constants/constants';
 import { ERROR_MESSAGES } from './../constants/constants';
-import { PRODUCTS_API_URL } from './../config/api';
+import { PRODUCTS_API_URL } from '../services/api/api';
 
 const useProducts = (
   initialCurrentPage: number,

@@ -1,10 +1,12 @@
+'use client';
+
 import { MainPageProps, Product } from '@/interfaces/interfaces';
 import Pagination from './Pagination';
 import ProductList from './ProductList';
 import ProductDetailsView from './ProductDetailsView';
 import Error from './Error';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './../store/store';
 import Flyout from './Flyout';
@@ -24,17 +26,12 @@ const MainPage = ({ initialCurrentPage, totalProducts }: MainPageProps) => {
   );
   const [details, setDetails] = useState<Product | null>(null);
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const [searchQuery, setSearchQuery] = useSearch('');
 
-  const {
-    filteredProductList,
-    error,
-    setError,
-    handleSearch,
-    setCurrentPage,
-    totalPages,
-  } = useProducts(initialCurrentPage, totalProducts, searchQuery);
+  const { filteredProductList, error, setError, setCurrentPage, totalPages } =
+    useProducts(initialCurrentPage, totalProducts, searchQuery);
 
   useEffect(() => {
     const savedQuery = localStorage.getItem('searchQuery');
@@ -44,39 +41,35 @@ const MainPage = ({ initialCurrentPage, totalProducts }: MainPageProps) => {
   }, [setSearchQuery]);
 
   useEffect(() => {
-    if (router.query.page) {
-      setCurrentPage(Number(router.query.page));
+    const page = searchParams.get('page');
+    const detailsId = searchParams.get('details');
+
+    if (page) {
+      setCurrentPage(Number(page));
     }
-  }, [router.query.page, setCurrentPage]);
 
-  const handleItemClick = (product: Product) => {
-    const currentPage = router.query.page ? Number(router.query.page) : 1;
-
-    setDetails(product);
-    const detailsUrl = `/?page=${currentPage}&details=${product.id}&query=${searchQuery}`;
-    router.push(detailsUrl, undefined, { shallow: true });
-  };
-
-  const handleCloseDetails = () => {
-    setDetails(null);
-    const pageUrl = `/?page=${router.query.page}&query=${searchQuery}`;
-    router.push(pageUrl, undefined, { shallow: true });
-  };
-
-  const handleLeftSectionClick = (event: React.MouseEvent) => {
-    if (details && event.currentTarget === event.target) {
-      handleCloseDetails();
+    if (detailsId) {
+      const selectedProduct = filteredProductList.find(
+        (product) => product.id === Number(detailsId)
+      );
+      if (selectedProduct) {
+        setDetails(selectedProduct);
+      }
     }
-  };
+  }, [searchParams, setCurrentPage, filteredProductList]);
 
   const handlePageChange = async (page: number) => {
-    await router.push(`/?page=${page}&query=${searchQuery}`, undefined, {
-      shallow: true,
-    });
-    setCurrentPage(page);
+    await router.push(`/?page=${page}&query=${searchQuery}`);
   };
 
-  const handleSelect = (product: Product) => {
+  const handleItemClick = async (product: Product) => {
+    setDetails(product);
+    await router.push(
+      `/?page=${searchParams.get('page') || 1}&details=${product.id}&query=${searchQuery}`
+    );
+  };
+
+  const handleSelect = async (product: Product) => {
     dispatch(addSelectedItem(product));
   };
 
@@ -91,26 +84,35 @@ const MainPage = ({ initialCurrentPage, totalProducts }: MainPageProps) => {
   const handleClearSearch = () => {
     setSearchQuery('');
     setCurrentPage(1);
-    router.push(`/?page=1`, undefined, { shallow: true });
+    router.push(`/?page=1`);
+  };
+
+  const handleCloseDetails = () => {
+    setDetails(null);
+    const currentPage = searchParams.get('page') || 1;
+    const newUrl = `/?page=${currentPage}&query=${searchQuery}`;
+    router.push(newUrl);
+  };
+
+  const handleLeftSectionClick = (event: React.MouseEvent) => {
+    if (details && event.currentTarget === event.target) {
+      handleCloseDetails();
+    }
+  };
+
+  const handleSearch = async (input: string) => {
+    if (input.trim() === '') {
+      handleClearSearch();
+    } else {
+      setSearchQuery(input);
+      await router.push(`/?page=1&query=${input}`);
+    }
   };
 
   return (
     <div className="flex flex-col min-h-screen max-w-screen-xl m-auto">
       <div className="flex-1 p-4 relative">
-        <SearchBar
-          onSearch={async (input) => {
-            if (input.trim() === '') {
-              handleClearSearch();
-            } else {
-              setSearchQuery(input);
-              await router.push(`/?page=1&query=${input}`, undefined, {
-                shallow: true,
-              });
-              handleSearch(input);
-            }
-          }}
-          searchQuery={searchQuery}
-        />
+        <SearchBar onSearch={handleSearch} searchQuery={searchQuery} />
         <div className="flex relative">
           {details && (
             <div
@@ -125,7 +127,9 @@ const MainPage = ({ initialCurrentPage, totalProducts }: MainPageProps) => {
           >
             <Pagination
               totalPages={totalPages}
-              currentPage={Number(router.query.page) || initialCurrentPage}
+              currentPage={
+                Number(searchParams.get('page')) || initialCurrentPage
+              }
               onPageChange={handlePageChange}
               disabled={!!details}
             />
