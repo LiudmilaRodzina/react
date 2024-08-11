@@ -7,13 +7,9 @@ export const metadata: Metadata = {
   title: 'Products',
   description:
     'RSSchool learning project: React Routing, Redux, Redux Toolkit, RTK Query, Context Api, Next.js Pages Api, Next.js App Router, Remix',
-  icons: [
-    {
-      rel: 'icon',
-      type: 'image/x-icon',
-      url: '/favicon.ico',
-    },
-  ],
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
