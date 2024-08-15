@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--footer-height);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #d5c8ec;
+}
