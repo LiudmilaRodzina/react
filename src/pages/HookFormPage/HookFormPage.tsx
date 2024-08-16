@@ -1,12 +1,22 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { FormValues } from '../../shared/interfaces';
+import { addForm } from '../../state/form/formSlice';
+import { useDispatch } from 'react-redux';
+import styles from './HookFormPage.module.scss';
 
 const HookFormPage = () => {
-  const { register, handleSubmit } = useForm<FormValues>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log(data);
+    navigate('/');
+    dispatch(addForm({ ...data }));
   };
 
   return (
@@ -15,16 +25,34 @@ const HookFormPage = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           Name:
-          <input {...register('name', { required: true })}></input>
+          <input
+            type="text"
+            {...register('name', { required: 'This is required' })}
+            placeholder="Enter your name"
+          ></input>
         </label>
+        <span>{errors.name?.message}</span>
 
         <label>
           Age:
-          <input {...register('age', { required: true })}></input>
+          <input
+            type="number"
+            {...register('age', { required: 'This is required' })}
+            placeholder="Enter your age"
+          ></input>
         </label>
+        <span>{errors.age?.message}</span>
+
         <button>Submit</button>
       </form>
-      <Link to="/">Go to Main Page</Link>
+      <div className={styles['links-container']}>
+        <Link to="/uncontrolled-form" className="content-link">
+          Uncontrolled Form
+        </Link>
+        <Link to="/" className="content-link">
+          Main Page
+        </Link>
+      </div>
     </div>
   );
 };

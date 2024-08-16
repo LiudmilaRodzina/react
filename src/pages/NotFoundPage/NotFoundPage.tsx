@@ -14,7 +14,9 @@ const NotFoundPage = () => {
           height: 'auto',
         }}
       />
-      <Link to="/">Go to Main Page</Link>
+      <Link to="/" className="content-link">
+        Go to Main Page
+      </Link>
     </div>
   );
 };

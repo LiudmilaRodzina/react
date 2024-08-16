@@ -5,7 +5,9 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <nav>
-        <Link to="/">Home</Link>
+        <Link to="/" className={styles['footer-link ']}>
+          Home
+        </Link>
         <Link to="/react-hook-form">React Hook Form</Link>
         <Link to="/uncontrolled-form">Uncontrolled Form</Link>
       </nav>

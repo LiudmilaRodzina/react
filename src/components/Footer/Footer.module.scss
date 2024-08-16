@@ -1,12 +1,18 @@
+@import '../../assets/styles/main.scss';
+
 .footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: var(--header-height);
+  height: $footer-height;
   width: 100%;
   position: fixed;
   bottom: 0;
   left: 0;
   z-index: 1;
-  background-color: #d5c8ec;
+  background: $background-footer;
+}
+
+.footer-link {
+  color: $color-text-dark;
 }

@@ -1,12 +1,29 @@
+@import '../../assets/styles/main.scss';
+
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: var(--footer-height);
+  height: $header-height;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
-  background-color: #d5c8ec;
+  background-color: $color-secondary;
+}
+
+nav a {
+  font-weight: 500;
+  color: $color-text-light;
+  text-decoration: inherit;
+  transition: color $transition;
+}
+
+nav a:hover {
+  color: $color-primary;
+}
+
+.activeLink {
+  color: $color-primary;
 }
