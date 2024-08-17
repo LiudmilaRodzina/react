@@ -4,6 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   max-width: 90vw;
+  margin-bottom: 30px;
 }
 
 .tile {
@@ -19,8 +20,4 @@
     border: 1px solid $color-correct;
     background-color: $background-new;
   }
-}
-
-h2 {
-  color: $color-primary;
 }

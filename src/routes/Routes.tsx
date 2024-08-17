@@ -5,6 +5,7 @@ import HookFormPage from '../pages/HookFormPage/HookFormPage';
 import Layout from '../layouts/Layout';
 import UncontrolledFormPage from '../pages/UncontrolledFormPage/UncontrolledFormPage';
 import { PATH } from '../shared/constants';
+import TermsPage from '../pages/TermsPage/TermsPage';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       { index: true, element: <MainPage /> },
       { path: PATH.HOOK_FORM, element: <HookFormPage /> },
       { path: PATH.UNCONTROLLED, element: <UncontrolledFormPage /> },
+      { path: PATH.TERMS_PAGE, element: <TermsPage /> },
       { path: PATH.ERROR_PAGE, element: <NotFoundPage /> },
     ],
   },

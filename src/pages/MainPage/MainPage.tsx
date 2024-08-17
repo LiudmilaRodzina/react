@@ -37,6 +37,14 @@ const MainPage = () => {
               <strong>Age: </strong>
               {form.age}
             </p>
+            <p>
+              <strong>Email: </strong>
+              {form.email}
+            </p>
+            <p>
+              <strong>Gender: </strong>
+              {form.gender}
+            </p>
           </div>
         ))}
       </div>

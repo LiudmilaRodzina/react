@@ -4,16 +4,22 @@
 
 * {
   outline: none;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 body {
-  margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   font-family: $font-family-primary;
   color: $color-text-dark;
 }
@@ -25,19 +31,44 @@ nav {
   gap: 30px;
 }
 
-input {
+input,
+select {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  height: 40px;
-  border: none;
-  width: 220px;
+  height: 35px;
+  width: 380px;
+  max-width: 380px;
   border-radius: 3px;
   padding: 10px;
   border: $border;
   color: $color-text-dark;
+
   &::placeholder {
     color: $color-text-grey;
+    font-size: 12px;
+  }
+}
+
+select {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  appearance: none;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &::-moz-inner-spin-button,
+  &::-moz-outer-spin-button {
+    -moz-appearance: none;
+    margin: 0;
   }
 }
 
@@ -55,38 +86,34 @@ label {
   align-items: center;
   flex-wrap: wrap;
   gap: 5px;
-  font-size: 15px;
+  font-size: 12px;
   color: $color-text-dark;
   padding: 5px;
   white-space: nowrap;
-  min-width: 280px;
+  min-width: 60px;
   text-align: left;
   font-weight: 700;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
 button {
   margin-top: 20px;
-  min-width: 280px;
+  min-width: 480px;
   font-size: 17px;
   font-weight: 700;
   border-radius: 3px;
-  min-height: 50px;
+  min-height: 40px;
   border: none;
   background-color: $color-primary;
   color: $color-text-light;
   cursor: pointer;
   box-shadow: $box-shadow;
-  border: none;
   transition: $transition;
+
   &:hover {
     transform: scale(1.02);
     background-color: darken($color-primary, 5%);
   }
+
   &:active {
     transform: scale(0.98);
     background-color: darken($color-primary, 10%);
@@ -97,9 +124,10 @@ a {
   font-weight: 500;
   color: $color-text-light;
   text-decoration: inherit;
-}
-a:hover {
-  color: $color-primary;
+
+  &:hover {
+    color: $color-primary;
+  }
 }
 
 .content-page {
@@ -108,12 +136,23 @@ a:hover {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: $content-height;
+  min-height: $content-height;
   background-color: $background-light;
+  padding: 20px;
 }
 
 .content-link {
-  color: $color-secondary;
+  color: $color-text-grey;
   font-weight: 700;
-  margin-top: 30px;
+  text-decoration: underline;
+
+  &:hover {
+    transform: scale(1.01);
+    color: darken($color-secondary, 5%);
+  }
+
+  &:active {
+    transform: scale(0.99);
+    color: darken($color-secondary, 10%);
+  }
 }
