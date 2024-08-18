@@ -2,11 +2,8 @@ import * as Yup from 'yup';
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-const passwordRegex = new RegExp(
-  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>_\-\\[\]~`+=;'])[A-Za-z\d!@#$%^&*(),.?":{}|<>_\-\\[\]~`+=;']{4,}$/
-);
-
-// const passwordRegex = new RegExp(/[A-Za-z]{1}/);
+const passwordRegex =
+  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>_\-/\\[\]~`+=;'])[A-Za-z\d!@#$%^&*(),.?":{}|<>_\-/\\[\]~`+=;']{4,}$/;
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
