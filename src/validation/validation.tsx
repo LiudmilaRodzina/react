@@ -43,7 +43,7 @@ const validationSchema = Yup.object().shape({
 
   terms: Yup.boolean()
     .oneOf([true], 'Please accept the Terms and Conditions')
-    .required('Please accept T&C'),
+    .required('Please accept the Terms and Conditions'),
 
   profilePicture: Yup.mixed<File>()
     .required('An image is required')

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { FormValues } from '../../shared/interfaces';
 import { addForm } from '../../state/form/formSlice';
@@ -173,9 +173,7 @@ const HookFormPage = () => {
 
         <div className={styles['input-container']}>
           <label className={styles['checkbox-container']}>
-            <Link to="/terms" className="content-link">
-              I accept the Terms and Conditions
-            </Link>
+            I accept the Terms and Conditions
             <input
               className={styles.checkbox}
               type="checkbox"

@@ -4,7 +4,6 @@ import { clearNewlyAdded } from '../../state/form/formSlice';
 import { useEffect } from 'react';
 import styles from './MainPage.module.scss';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
 import truncateText from '../../utils/helpers';
 
 const MainPage = () => {
@@ -61,15 +60,6 @@ const MainPage = () => {
         ))}
         {emptyTiles}
       </div>
-      <nav>
-        <Link to="/react-hook-form" className="content-link">
-          React Hook Form
-        </Link>
-        <Link to="/uncontrolled-form" className="content-link">
-          Uncontrolled Form
-        </Link>
-        <br />
-      </nav>
     </div>
   );
 };

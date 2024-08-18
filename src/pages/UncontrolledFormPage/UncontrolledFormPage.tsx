@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addForm } from '../../state/form/formSlice';
 import styles from './UncontrolledFormPage.module.scss';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import validationSchema from '../../validation/validation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -168,9 +168,7 @@ const UncontrolledFormPage = () => {
 
         <div className={styles['input-container']}>
           <label className={styles['checkbox-container']}>
-            <Link to="/terms" className="content-link">
-              I accept the Terms and Conditions
-            </Link>
+            I accept the Terms and Conditions
             <input type="checkbox" ref={termsRef} className={styles.checkbox} />
           </label>
         </div>

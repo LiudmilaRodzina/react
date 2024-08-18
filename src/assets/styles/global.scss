@@ -1,5 +1,4 @@
 @import 'variables';
-@import 'typography';
 @import 'fonts';
 
 * {
@@ -179,6 +178,7 @@ a {
   flex-direction: row-reverse;
   margin-left: 70px;
   gap: 20px;
+  color: $color-text-grey;
 }
 
 .checkbox {
