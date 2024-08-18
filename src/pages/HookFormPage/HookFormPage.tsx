@@ -8,7 +8,11 @@ import validationSchema from '../../validation/validation';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import {
+  usePasswordVisibility,
+  calculatePasswordStrength,
+} from '../../utils/helpers';
 
 const HookFormPage = () => {
   const {
@@ -17,19 +21,24 @@ const HookFormPage = () => {
     control,
     handleSubmit,
     formState: { errors, isValid },
+    watch,
   } = useForm<FormValues>({
     resolver: yupResolver(validationSchema),
     mode: 'onChange',
   });
 
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const {
+    isVisible: showPassword,
+    toggleVisibility: togglePasswordVisibility,
+  } = usePasswordVisibility();
 
+  const {
+    isVisible: showConfirmPassword,
+    toggleVisibility: toggleConfirmPasswordVisibility,
+  } = usePasswordVisibility();
+
+  const [passwordStrength, setPasswordStrength] = useState(0);
   const [profilePicture, setProfilePicture] = useState<string | null>(null);
-
-  const togglePasswordVisibility = () => setShowPassword(!showPassword);
-  const toggleConfirmPasswordVisibility = () =>
-    setShowConfirmPassword(!showConfirmPassword);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -39,7 +48,6 @@ const HookFormPage = () => {
       ...data,
       profilePicture: profilePicture || '',
     };
-
     dispatch(addForm(formData));
     navigate('/');
   };
@@ -55,6 +63,11 @@ const HookFormPage = () => {
     }
     await trigger('profilePicture');
   };
+
+  const password = watch('password') || '';
+  React.useEffect(() => {
+    setPasswordStrength(calculatePasswordStrength(password));
+  }, [password]);
 
   return (
     <div className="content-page">
@@ -111,6 +124,21 @@ const HookFormPage = () => {
               <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
             </span>
           </div>
+        </div>
+
+        <div className={styles['strength-meter']}>
+          <div
+            className={`${styles['strength-bar']} ${passwordStrength >= 1 ? styles['filled-1'] : ''}`}
+          />
+          <div
+            className={`${styles['strength-bar']} ${passwordStrength >= 2 ? styles['filled-2'] : ''}`}
+          />
+          <div
+            className={`${styles['strength-bar']} ${passwordStrength >= 3 ? styles['filled-3'] : ''}`}
+          />
+          <div
+            className={`${styles['strength-bar']} ${passwordStrength >= 4 ? styles['filled-4'] : ''}`}
+          />
         </div>
         <span className={styles['error-message']}>
           {errors.password ? errors.password.message : '\u00A0'}

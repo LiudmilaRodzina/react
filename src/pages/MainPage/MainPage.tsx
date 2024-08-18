@@ -4,7 +4,7 @@ import { clearNewlyAdded } from '../../state/form/formSlice';
 import { useEffect } from 'react';
 import styles from './MainPage.module.scss';
 import classNames from 'classnames';
-import truncateText from '../../utils/helpers';
+import { truncateText } from '../../utils/helpers';
 
 const MainPage = () => {
   const forms = useSelector((state: RootState) => state.forms.forms);
