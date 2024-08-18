@@ -6,4 +6,5 @@ export interface FormValues {
   passwordConfirm: string;
   gender: string;
   terms: boolean;
+  profilePicture: File;
 }

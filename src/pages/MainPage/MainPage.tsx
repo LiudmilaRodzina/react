@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import styles from './MainPage.module.scss';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
+import truncateText from '../../utils/helpers';
 
 const MainPage = () => {
   const forms = useSelector((state: RootState) => state.forms.forms);
@@ -17,10 +18,14 @@ const MainPage = () => {
     return () => clearTimeout(timer);
   }, [dispatch]);
 
+  const emptyTilesCount = 12 - forms.length;
+  const emptyTiles = Array.from({ length: emptyTilesCount }, (_, index) => (
+    <div className={styles.tile} key={`empty-${index}`}></div>
+  ));
+
   return (
     <div className="content-page">
-      <h1>Main Page</h1>
-      <h2 className="">Submitted Data:</h2>
+      <h1>Submitted Data</h1>
       <div className={styles['tiles-container']}>
         {forms.map((form, index) => (
           <div
@@ -29,9 +34,16 @@ const MainPage = () => {
             })}
             key={index}
           >
+            <div>
+              <img
+                src={form.profilePicture}
+                alt="Profile"
+                className={styles['profile-picture']}
+              />
+            </div>
             <p>
               <strong>Name: </strong>
-              {form.name}
+              {truncateText(form.name, 10)}
             </p>
             <p>
               <strong>Age: </strong>
@@ -39,7 +51,7 @@ const MainPage = () => {
             </p>
             <p>
               <strong>Email: </strong>
-              {form.email}
+              {truncateText(form.email, 10)}
             </p>
             <p>
               <strong>Gender: </strong>
@@ -47,6 +59,7 @@ const MainPage = () => {
             </p>
           </div>
         ))}
+        {emptyTiles}
       </div>
       <nav>
         <Link to="/react-hook-form" className="content-link">

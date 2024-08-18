@@ -8,6 +8,7 @@ interface FormData {
   passwordConfirm: string;
   gender: string;
   terms: boolean;
+  profilePicture: string;
   newlyAdded?: boolean;
 }
 

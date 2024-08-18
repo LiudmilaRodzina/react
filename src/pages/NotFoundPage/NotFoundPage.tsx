@@ -6,7 +6,11 @@ const NotFoundPage = () => {
   return (
     <div className={`content-page ${styles['not-found-page']}`}>
       <h1>404 | Not Found</h1>
-      <img src={img404} alt="page not found image" />
+      <img
+        className={styles['not-found-image']}
+        src={img404}
+        alt="page not found image"
+      />
       <Link to="/" className="content-link">
         Go to Main Page
       </Link>

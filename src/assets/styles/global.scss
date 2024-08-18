@@ -24,6 +24,14 @@ body {
   color: $color-text-dark;
 }
 
+h1 {
+  margin: 0;
+}
+
+p {
+  margin: 5px;
+}
+
 nav {
   display: flex;
   justify-content: center;
@@ -31,17 +39,26 @@ nav {
   gap: 30px;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
 input,
 select {
   display: flex;
   justify-content: space-between;
-  height: 35px;
+  height: 40px;
   width: 380px;
   max-width: 380px;
   border-radius: 3px;
   padding: 10px;
   border: $border;
   color: $color-text-dark;
+  background-color: $color-text-light;
 
   &::placeholder {
     color: $color-text-grey;
@@ -51,7 +68,7 @@ select {
 
 select {
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 input[type='number'] {
@@ -72,14 +89,6 @@ input[type='number'] {
   }
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-}
-
 label {
   display: flex;
   justify-content: space-between;
@@ -96,7 +105,7 @@ label {
 }
 
 button {
-  margin-top: 20px;
+  margin-top: 10px;
   min-width: 480px;
   font-size: 17px;
   font-weight: 700;
@@ -138,7 +147,7 @@ a {
   width: 100vw;
   min-height: $content-height;
   background-color: $background-light;
-  padding: 20px;
+  padding: 64px 0;
 }
 
 .content-link {
@@ -155,4 +164,66 @@ a {
     transform: scale(0.99);
     color: darken($color-secondary, 10%);
   }
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
+.checkbox-container {
+  flex-direction: row-reverse;
+  margin-left: 70px;
+  gap: 20px;
+}
+
+.checkbox {
+  align-self: start;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: $color-text-light;
+  position: relative;
+  cursor: pointer;
+
+  &:checked {
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
+
+  &:checked::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 7px;
+    width: 6px;
+    height: 12px;
+    border: solid $color-text-light;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+}
+
+.password-wrapper {
+  position: relative;
+  width: 380px;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: $color-text-grey;
+  cursor: pointer;
+}
+
+.error-message {
+  font-size: 12px;
+  color: $color-error;
 }

@@ -1,15 +1,34 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <nav>
-        <Link to="/" className={styles['footer-link ']}>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? styles['active-nav-link'] : styles['footer-nav-link']
+          }
+        >
           Home
-        </Link>
-        <Link to="/react-hook-form">React Hook Form</Link>
-        <Link to="/uncontrolled-form">Uncontrolled Form</Link>
+        </NavLink>
+        <NavLink
+          to="/react-hook-form"
+          className={({ isActive }) =>
+            isActive ? styles['active-nav-link'] : styles['footer-nav-link']
+          }
+        >
+          React Hook Form
+        </NavLink>
+        <NavLink
+          to="/uncontrolled-form"
+          className={({ isActive }) =>
+            isActive ? styles['active-nav-link'] : styles['footer-nav-link']
+          }
+        >
+          Uncontrolled Form
+        </NavLink>
       </nav>
     </footer>
   );

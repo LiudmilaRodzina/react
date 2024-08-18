@@ -13,6 +13,11 @@
   background: $background-footer;
 }
 
-.footer-link {
-  color: $color-text-dark;
+.footer-nav-link {
+  color: $color-text-grey;
+}
+
+.active-nav-link {
+  color: $color-secondary;
+  font-weight: 700;
 }

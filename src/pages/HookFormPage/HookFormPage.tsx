@@ -1,18 +1,20 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { FormValues } from '../../shared/interfaces';
 import { addForm } from '../../state/form/formSlice';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
 import styles from './HookFormPage.module.scss';
 import validationSchema from '../../validation/validation';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 
 const HookFormPage = () => {
   const {
     register,
+    trigger,
+    control,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm<FormValues>({
@@ -23,6 +25,8 @@ const HookFormPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  const [profilePicture, setProfilePicture] = useState<string | null>(null);
+
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
   const toggleConfirmPasswordVisibility = () =>
     setShowConfirmPassword(!showConfirmPassword);
@@ -31,8 +35,25 @@ const HookFormPage = () => {
   const dispatch = useDispatch();
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    dispatch(addForm({ ...data }));
+    const formData = {
+      ...data,
+      profilePicture: profilePicture || '',
+    };
+
+    dispatch(addForm(formData));
     navigate('/');
+  };
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfilePicture(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+    await trigger('profilePicture');
   };
 
   return (
@@ -87,7 +108,7 @@ const HookFormPage = () => {
               className={styles['eye-icon']}
               onClick={togglePasswordVisibility}
             >
-              <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+              <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
             </span>
           </div>
         </div>
@@ -108,7 +129,7 @@ const HookFormPage = () => {
               onClick={toggleConfirmPasswordVisibility}
             >
               <FontAwesomeIcon
-                icon={showConfirmPassword ? faEyeSlash : faEye}
+                icon={showConfirmPassword ? faEye : faEyeSlash}
               />
             </span>
           </div>
@@ -123,7 +144,6 @@ const HookFormPage = () => {
             <option value="">Select Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
-            <option value="other">Other</option>
           </select>
         </div>
         <span className={styles['error-message']}>
@@ -131,9 +151,30 @@ const HookFormPage = () => {
         </span>
 
         <div className={styles['input-container']}>
+          <label>Profile picture:</label>
+          <Controller
+            name="profilePicture"
+            control={control}
+            render={({ field }) => (
+              <input
+                type="file"
+                accept="image/jpeg, image/png"
+                onChange={(e) => {
+                  handleImageUpload(e);
+                  field.onChange?.(e.target.files?.[0]);
+                }}
+              />
+            )}
+          />
+        </div>
+        <span className={styles['error-message']}>
+          {errors.profilePicture ? errors.profilePicture.message : '\u00A0'}
+        </span>
+
+        <div className={styles['input-container']}>
           <label className={styles['checkbox-container']}>
             <Link to="/terms" className="content-link">
-              I have read and agree to the Terms and Conditions
+              I accept the Terms and Conditions
             </Link>
             <input
               className={styles.checkbox}
@@ -150,15 +191,6 @@ const HookFormPage = () => {
           Submit
         </button>
       </form>
-
-      <div className={styles['links-container']}>
-        <Link to="/uncontrolled-form" className="content-link">
-          Uncontrolled Form
-        </Link>
-        <Link to="/" className="content-link">
-          Main Page
-        </Link>
-      </div>
     </div>
   );
 };
