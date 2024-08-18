@@ -1,0 +1,257 @@
+@import 'variables';
+@import 'fonts';
+
+* {
+  outline: none;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: $font-family-primary;
+  color: $color-text-dark;
+}
+
+h1 {
+  margin: 0;
+}
+
+p {
+  margin: 5px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+input,
+select {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  width: 380px;
+  max-width: 380px;
+  border-radius: 3px;
+  padding: 10px;
+  border: $border;
+  color: $color-text-dark;
+  background-color: $color-text-light;
+
+  &::placeholder {
+    color: $color-text-grey;
+    font-size: 12px;
+  }
+}
+
+select {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  appearance: none;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &::-moz-inner-spin-button,
+  &::-moz-outer-spin-button {
+    -moz-appearance: none;
+    margin: 0;
+  }
+}
+
+label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 12px;
+  color: $color-text-dark;
+  padding: 5px;
+  white-space: nowrap;
+  min-width: 60px;
+  text-align: left;
+  font-weight: 700;
+}
+
+button {
+  margin-top: 10px;
+  min-width: 480px;
+  font-size: 17px;
+  font-weight: 700;
+  border-radius: 3px;
+  min-height: 40px;
+  border: none;
+  background-color: $color-primary;
+  color: $color-text-light;
+  cursor: pointer;
+  box-shadow: $box-shadow;
+  transition: $transition;
+
+  &:hover {
+    transform: scale(1.02);
+    background-color: darken($color-primary, 5%);
+  }
+
+  &:active {
+    transform: scale(0.98);
+    background-color: darken($color-primary, 10%);
+  }
+}
+
+a {
+  font-weight: 500;
+  color: $color-text-light;
+  text-decoration: inherit;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.content-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: $content-height;
+  background-color: $background-light;
+  padding: 64px 0;
+}
+
+.content-link {
+  color: $color-text-grey;
+  font-weight: 700;
+  text-decoration: underline;
+
+  &:hover {
+    transform: scale(1.01);
+    color: darken($color-secondary, 5%);
+  }
+
+  &:active {
+    transform: scale(0.99);
+    color: darken($color-secondary, 10%);
+  }
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
+.checkbox-container {
+  flex-direction: row-reverse;
+  margin-left: 70px;
+  gap: 20px;
+  color: $color-text-grey;
+}
+
+.checkbox {
+  align-self: start;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: $color-text-light;
+  position: relative;
+  cursor: pointer;
+
+  &:checked {
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
+
+  &:checked::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 7px;
+    width: 6px;
+    height: 12px;
+    border: solid $color-text-light;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+}
+
+.password-wrapper {
+  position: relative;
+  width: 380px;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: $color-text-grey;
+  cursor: pointer;
+}
+
+.error-message {
+  font-size: 12px;
+  color: $color-error;
+}
+
+.strength-meter {
+  display: flex;
+  gap: 4px;
+  margin: 2px 0;
+}
+
+.strength-bar {
+  height: 5px;
+  width: 60px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+}
+
+.filled {
+  &-1 {
+    background-color: #ff4d4f;
+  }
+  &-2 {
+    background-color: #faad14;
+  }
+  &-3 {
+    background-color: #52c41a;
+  }
+  &-4 {
+    background-color: #1890ff;
+  }
+}

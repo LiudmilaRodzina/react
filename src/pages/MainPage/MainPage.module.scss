@@ -1,0 +1,42 @@
+@import '../../assets/styles/main.scss';
+
+.tiles-container {
+  display: grid;
+  grid-template-columns: repeat(6, 200px);
+  flex-wrap: wrap;
+  max-width: 90vw;
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: $box-shadow;
+  transition: $transition;
+  border: $border;
+  border-radius: 3px;
+  margin: 5px;
+  min-height: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &.newly-added {
+    border: 1px solid $color-correct;
+    background-color: $background-new;
+  }
+}
+
+.profile-picture {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: $border;
+  box-shadow: $box-shadow;
+}

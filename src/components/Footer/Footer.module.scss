@@ -1,0 +1,23 @@
+@import '../../assets/styles/main.scss';
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $footer-height;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background: $background-footer;
+}
+
+.footer-nav-link {
+  color: $color-text-grey;
+}
+
+.active-nav-link {
+  color: $color-secondary;
+  font-weight: 700;
+}
